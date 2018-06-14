@@ -16,7 +16,7 @@ restore_node: &restore_node
 refresh_data: &refresh_data
   run:
     name: Refresh guide data
-    command: npx refresh_data
+    command: npm run refresh_data
 
 jobs:
   install:
