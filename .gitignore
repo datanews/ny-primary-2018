@@ -21,3 +21,13 @@ testem.log
 .node_modules.ember-try/
 bower.json.ember-try
 package.json.ember-try
+
+.*~
+.*sw*
+
+.env.deploy*
+!.env.deploy.sample
+.env
+!.env.sample
+
+server/data
