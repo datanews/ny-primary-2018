@@ -6,12 +6,12 @@ defaults: &defaults
       environment:
         JOBS: 2
 
+node_key: &node_key
+  key: node-deps-{{ arch }}-{{ checksum "package.json" }}
+
 restore_node: &restore_node
   restore_cache:
     <<: *node_key
-
-node_key: &node_key
-  key: node-deps-{{ arch }}-{{ checksum "package.json" }}
 
 refresh_data: &refresh_data
   run:
