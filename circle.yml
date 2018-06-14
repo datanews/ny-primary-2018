@@ -1,0 +1,118 @@
+version: 2
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:8-browsers
+      environment:
+        JOBS: 2
+
+restore_node: &restore_node
+  restore_cache:
+    <<: *node_key
+
+node_key: &node_key
+  key: node-deps-{{ arch }}-{{ checksum "package.json" }}
+
+refresh_data: &refresh_data
+  run:
+    name: Refresh guide data
+    command: npx refresh_data
+
+jobs:
+  install:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - <<: *restore_node
+      - run:
+          name: Node dependencies
+          command: |
+            if [ ! -d node_modules ]; then
+              npm i --no-package-lock
+            fi
+      - save_cache:
+          <<: *node_key
+          paths:
+            - node_modules
+
+  test:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - <<: *restore_node
+      - run:
+          name: Test
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
+          command: npx ember test
+      - store_test_results:
+          path: test-results/
+
+  deploy_production:
+    <<: *defaults
+    environment:
+      ENV: prod
+
+    steps:
+      - checkout
+      - <<: *restore_node
+
+      - run:
+          name: Deploy to production
+          command: |
+            env | sed -n 's/^DEPLOY_//p' > .env
+            env | sed -n 's/^PROD_//p' >> .env
+            npx ember deploy production --verbose --activate
+
+      - <<: *refresh_data
+
+
+  deploy_staging:
+    <<: *defaults
+    environment:
+      ENV: staging
+
+    steps:
+      - checkout
+      - <<: *restore_node
+
+      - run:
+          name: Deploy to staging
+          command: |
+            env | sed -n 's/^DEPLOY_//p' > .env
+            env | sed -n 's/^STAGING_//p' >> .env
+            npx ember deploy staging --verbose --activate
+
+      - <<: *refresh_data
+
+workflows:
+  version: 2
+  install-test-deploy:
+    jobs:
+      - install:
+          filters:
+            tags:
+              only: /.*/
+      - test:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - install
+      - deploy_production:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - deploy_staging:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
