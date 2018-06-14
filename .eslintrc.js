@@ -34,6 +34,17 @@ module.exports = {
         browser: false,
         node: true
       }
+    },
+    {
+      files: ['scripts/**/*.js'],
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2018
+      },
+      env: {
+        browser: false,
+        node: true
+      }
     }
   ]
 };
