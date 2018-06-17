@@ -21,6 +21,13 @@ getJSON().then(json => {
     }).promise()
     .then(() => console.log('success')); // eslint-disable-line
   } else {
-    fs.writeFileSync(path.join(__dirname, '..', 'server/data/guide.json'), JSON.stringify(json));
+    let dest = path.join(__dirname, '..', 'server/data/guide.json');
+    try {
+      fs.writeFileSync(dest, JSON.stringify(json));
+    } catch(e) {
+      // does not exist, create
+      fs.mkdirSync(dest);
+      fs.writeFileSync(dest, JSON.stringify(json));
+    }
   }
 });
