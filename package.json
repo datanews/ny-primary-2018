@@ -21,6 +21,7 @@
     "aws-sdk": "^2.257.1",
     "broccoli-asset-rev": "^2.4.5",
     "csvtojson": "^2.0.3",
+    "dotenv": "^6.0.0",
     "ember-cli": "~3.1.4",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.8.1",
