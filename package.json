@@ -2,14 +2,14 @@
   "name": "ny-primary-2018",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for ny-primary-2018 goes here",
+  "description": "Voter guide for the 2018 New York Primary election",
   "license": "MIT",
-  "author": "",
+  "author": "Brian Whitton",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/datanews/ny-primary-2018",
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
