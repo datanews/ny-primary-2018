@@ -14,7 +14,7 @@ getJSON().then(json => {
     s3.putObject({
       Body: Buffer.from(JSON.stringify(json)),
       Bucket: process.env.AWS_BUCKET,
-      Key: process.env.AWS_PREFIX,
+      Key: `${process.env.AWS_PREFIX}/data/guide.json`,
       ACL: 'public-read',
       ContentType: 'application/json',
       Expires: 0
