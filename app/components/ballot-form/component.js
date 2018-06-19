@@ -18,7 +18,7 @@ export default Component.extend({
     return this.party && this.address;
   }),
 
-  onSubmit(district, party) {
+  showBallot(district, party) {
     this.router.transitionTo('ballot', district, party);
   },
 
@@ -29,7 +29,7 @@ export default Component.extend({
     try {
       this.set('error', null);
       let { district } = yield this.districtLocator.findDistrict.linked().perform(address);
-      this.onSubmit(district, this.party);
+      this.showBallot(district, this.party);
     } catch({ error }) {
       this.set('error', error.message);
     }
