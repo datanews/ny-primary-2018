@@ -7,32 +7,18 @@ import * as fetch from 'fetch';
 import * as wherewolf from 'wherewolf';
 import * as google from 'google';
 
+import {
+  GOOD_RESULTS,
+  EMPTY_RESULT,
+  MULTIPLE_RESULTS,
+  NOT_NYC
+} from '../../fixtures/geocoder';
+
 function sinonSetup() {
   this.wolfAPI = {add() {}, find() {}};
   this.stub(wherewolf, 'default').returns(this.wolfAPI);
   this.stub(fetch, 'default').resolves({json: () => 'foo'});
 }
-
-const GOOD_RESULTS = [{
-  formatted_address: '123 main street',
-  geometry: {
-    location: {
-      toJSON: () => ({lat: 123, lng: 456})
-    }
-  },
-  address_components: [{types: ['administrative_area_level_2'], long_name: 'New York County'}]
-}];
-const EMPTY_RESULT = [];
-const MULTIPLE_RESULTS = GOOD_RESULTS.concat(GOOD_RESULTS);
-const NOT_NYC = [{
-  formatted_address: '123 main street',
-  geometry: {
-    location: {
-      toJSON: () => ({lat: 123, lng: 456})
-    }
-  },
-  address_components: [{types: ['administrative_area_level_2'], long_name: ''}]
-}];
 
 module('Unit | Service | district-locator', function(hooks) {
   setupTest(hooks);
