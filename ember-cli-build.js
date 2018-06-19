@@ -17,6 +17,9 @@ module.exports = function(defaults) {
 
 
   app.import('node_modules/normalize.css/normalize.css');
+  app.import('node_modules/wherewolf/wherewolf.js');
+
   app.import('vendor/shims/google.js');
+  app.import('vendor/shims/wherewolf.js');
   return app.toTree();
 };
