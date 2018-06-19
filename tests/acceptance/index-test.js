@@ -1,30 +1,22 @@
 import { module } from 'qunit';
-import { visit, currentURL, fillIn, click } from '@ember/test-helpers';
+import {
+  visit,
+  currentURL,
+  fillIn,
+  click,
+  findAll,
+  find
+} from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
 import Service from '@ember/service';
 import { task } from 'ember-concurrency';
-import sinon from 'sinon';
 
-import * as fetch from 'fetch';
-
-let DISTRICT;
-const LocatorStub = Service.extend({
-  findDistrict: task(function* () {
-      yield;
-      return {district: DISTRICT};
-  })
-});
+import ERRORS from 'ny-primary-2018/lib/errors';
+import { MULTIPLE_RESULTS } from '../fixtures/geocoder';
 
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);
-  hooks.beforeEach(function() {
-    sinon.stub(fetch, 'default').resolves({json: () => 'foo'});
-  });
-
-  hooks.afterEach(function() {
-    fetch.default.restore();
-  })
 
   test('visiting /', async function(assert) {
     await visit('/');
@@ -33,7 +25,14 @@ module('Acceptance | index', function(hooks) {
   });
 
   test('looking up an address', async function(assert) {
-    DISTRICT = 1;
+    const DISTRICT = 1;
+    const LocatorStub = Service.extend({
+      findDistrict: task(function* () {
+          yield;
+          return {district: DISTRICT};
+      })
+    });
+
     this.owner.register('service:district-locator', LocatorStub);
     await visit('/');
 
@@ -60,5 +59,34 @@ module('Acceptance | index', function(hooks) {
     await click('.ballot-form__submit');
 
     assert.equal(currentURL(), '/');
+  });
+
+  test('it show suggested addresses', async function(assert) {
+    let service = this.owner.lookup('service:district-locator');
+    service.lookupAddress = function() {
+      return Promise.reject(ERRORS.MULTIPLE_LOCATIONS(MULTIPLE_RESULTS));
+    };
+
+    await visit('/');
+    await fillIn('.ballot-form input[type=text]', '123 main street');
+    await click('[data-test-selector=dem]');
+    await click('.ballot-form__submit');
+
+    assert.equal(findAll('.ballot-form__suggestion').length, MULTIPLE_RESULTS.length);
+  });
+
+  test('it shows other error messages', async function(assert) {
+    let service = this.owner.lookup('service:district-locator');
+    let error = ERRORS.NO_RESULTS();
+    service.lookupAddress = function() {
+      return Promise.reject(error);
+    };
+
+    await visit('/');
+    await fillIn('.ballot-form input[type=text]', '123 main street');
+    await click('[data-test-selector=dem]');
+    await click('.ballot-form__submit');
+
+    assert.equal(find('.ballot-form__error').textContent.trim(), error.error.message);
   });
 });
