@@ -20,7 +20,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    districtSource: process.env.DISTRICT_GEO_JSON_SOURCE,
+    candidateSource: process.env.CANDIDATE_SOURCE,
     googleAPIKey: process.env.GOOGLE_API_KEY,
   };
 
