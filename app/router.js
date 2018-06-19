@@ -7,6 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('ballot', {path: ':district/:party'});
 });
 
 export default Router;
