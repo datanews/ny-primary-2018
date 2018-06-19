@@ -6,6 +6,9 @@ const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    babel: {
+      plugins: ['transform-object-rest-spread']
+    },
     fingerprint: {
       enabled: env === 'production',
       prepend: process.env.FINGERPRINT_PREPEND_URL
