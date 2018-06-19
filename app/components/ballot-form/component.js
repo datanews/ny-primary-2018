@@ -22,7 +22,7 @@ export default Component.extend({
     this.router.transitionTo('ballot', district, party);
   },
 
-  lookup: task(function * (address) {
+  addressToBallot: task(function * (address) {
     if (!this.canSubmit) {
       return;
     }
