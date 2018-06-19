@@ -18,13 +18,20 @@ export default Service.extend({
 
     let geocoder = new google.maps.Geocoder();
     this.set('geocoder', geocoder);
+
+    let ww = new wherewolf();
+    this.set('ww', ww);
   },
 
   loadDistricts: task(function * () {
-    let districts = yield fetch(config.districtSource).then(r => r.json());
-    let ww = new wherewolf();
-    ww.add('districts', districts);
-    this.set('ww', ww);
+    let districts = yield fetch(config.districtSource)
+      .then(r => r.json())
+      .catch(() => null);
+
+    if (!districts) {
+      return;
+    }
+    this.ww.add('districts', districts);
   }),
 
   findDistrict: task(function * (address) {
