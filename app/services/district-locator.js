@@ -52,13 +52,13 @@ export default Service.extend({
         }
        }, (results, status) => {
         if (results.length === 0) {
-          ERRORS.NO_RESULTS(reject);
+          reject(ERRORS.NO_RESULTS());
         } else if (status !== 'OK') {
-          ERRORS.BAD_STATUS(reject, status);
+          reject(ERRORS.BAD_STATUS(status))
         } else if (results.length > 1) {
-          ERRORS.MULTIPLE_LOCATIONS(reject, results);
+          reject(ERRORS.MULTIPLE_LOCATIONS(results))
         } else if (!inNYC(results[0])) {
-          ERRORS.OUT_OF_BOUNDS(reject);
+          reject(ERRORS.OUT_OF_BOUNDS())
         } else {
           let [{
             formatted_address: formattedAddress,
