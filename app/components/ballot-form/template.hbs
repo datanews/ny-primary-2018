@@ -1,0 +1,24 @@
+{{input value=address class="ballot-form__input" action=(action (perform lookup address))}}
+
+<ul>
+  <li>
+    {{ballot-form/party 'dem' onClick=(action (mut party)) party=party}}
+  </li>
+  <li>
+    {{ballot-form/party 'rep' onClick=(action (mut party)) party=party}}
+  </li>
+  <li>
+    {{ballot-form/party 'green' onClick=(action (mut party)) party=party}}
+  </li>
+  <li>
+    {{ballot-form/party 'ind' onClick=(action (mut party)) party=party}}
+  </li>
+</ul>
+
+<button
+  class="ballot-form__submit"
+  type="submit"
+  disabled={{not canSubmit}}
+  {{action (perform lookup address)}}>
+  view candidates
+</button>
