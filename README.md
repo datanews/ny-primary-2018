@@ -71,3 +71,23 @@ Specify what it takes to deploy your app.
   </RoutingRule>
 </RoutingRules>
 ```
+
+## generating a topojson file from census shapefiles
+### requirements
+- `ogr2ogr`
+ - mac os install: `brew install gdal`
+- `topojson`: `npm i -g topojson`
+
+### steps
+- pull down latest shapefiles from census.gov
+ - https://www.census.gov/geo/maps-data/data/cbf/cbf_cds.html
+ - use the 20m resolution level
+- generate geojson from the shapefile (`.shp`)
+ - `$ ogr2ogr -f GeoJSON districts.json <shapefile>.shp -sql "SELECT CAST(CD115FP AS INTEGER) AS district FROM <shapefile> where STATEFP='36'"`
+ - note using the `.shp` extension in the command and leaving off the extension in the SQL
+- compress
+ - `$ gzip -9 geo.json`
+ - `$ mv geo.json.gz geo.json`
+- upload to S3
+ - set Content Type header to `application/json`
+ - set Content Encoding header to `gzip`
