@@ -31,7 +31,7 @@ export default Component.extend({
       let { district } = yield this.districtLocator.findDistrict.linked().perform(address);
       this.showBallot(district, this.party);
     } catch({ error }) {
-      this.set('error', error.message);
+      this.set('error', error);
     }
   }),
 
