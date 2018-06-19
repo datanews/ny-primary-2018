@@ -1,19 +1,27 @@
-{{input value=address class="ballot-form__input" action=(action (perform lookup address))}}
+<div class="ballot-form__input">
+  <h3 class="ballot-form__sub">Enter your address below</h3>
+  {{input value=address class="ballot-form__field" action=(action (perform addressToBallot address))}}
 
-<ul>
-  <li>
-    {{ballot-form/party 'dem' onClick=(action (mut party)) party=party}}
-  </li>
-  <li>
-    {{ballot-form/party 'rep' onClick=(action (mut party)) party=party}}
-  </li>
-  <li>
-    {{ballot-form/party 'green' onClick=(action (mut party)) party=party}}
-  </li>
-  <li>
-    {{ballot-form/party 'ind' onClick=(action (mut party)) party=party}}
-  </li>
-</ul>
+</div>
+
+<div class="ballot-form__parties">
+  <h3 class="ballot-form__sub">Choose your party:</h3>
+  <ul>
+    <li>
+      {{ballot-form/party 'dem' onClick=(action (mut party)) party=party}}
+    </li>
+    <li>
+      {{ballot-form/party 'rep' onClick=(action (mut party)) party=party}}
+    </li>
+    <li>
+      {{ballot-form/party 'green' onClick=(action (mut party)) party=party}}
+    </li>
+    <li>
+      {{ballot-form/party 'ind' onClick=(action (mut party)) party=party}}
+    </li>
+  </ul>
+</div>
+
 {{#if (and error (eq error.type 'MULTIPLE_LOCATIONS'))}}
 <div class="ballot-form__suggestions">
 
