@@ -1,1 +1,11 @@
-{{outlet}}
+{{#ballot-switcher as |switcher|}}
+  {{switcher.dropdown
+    districts=districts
+    selected=selected
+    onChange=(action update party)
+  }}
+
+  {{switcher.parties party=party}}
+{{/ballot-switcher}}
+
+{{race-detail race=model}}
