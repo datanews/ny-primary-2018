@@ -14,6 +14,22 @@
     {{ballot-form/party 'ind' onClick=(action (mut party)) party=party}}
   </li>
 </ul>
+{{#if (and error (eq error.type 'MULTIPLE_LOCATIONS'))}}
+<div class="ballot-form__suggestions">
+
+  <h3 class="ballot-form__sub">{{error.message}}</h3>
+
+  <ul class="ballot-form__suggestion-list">
+  {{#each error.locations as |location|}}
+    {{#action-button
+      class="ballot-form__suggestion"
+      click=(action coordsToBallot location.lat location.lng)}}
+      {{location.address}}
+    {{/action-button}}
+  {{/each}}
+  </ul>
+</div>
+{{/if}}
 
 <button
   class="ballot-form__submit"
