@@ -36,7 +36,7 @@ export default Service.extend({
 
   findDistrict: task(function * (address) {
     let { lat, lng, formattedAddress } = yield this.lookupAddress(address);
-    let results = this.ww.find({lat, lng}, {layer: 'districts'}) || {};
+    let results = this.pinPoint(lat, lng);
     return {
       formattedAddress,
       ...results
@@ -70,5 +70,9 @@ export default Service.extend({
       })
     });
   },
+
+  pinPoint(lat, lng) {
+    return this.ww.find({lat, lng}, {layer: 'districts'}) || {};
+  }
 
 });
