@@ -47,6 +47,9 @@ export default Service.extend({
     return new Promise((resolve, reject) => {
       this.geocoder.geocode({
         address,
+        componentRestrictions: {
+          administrativeArea: 'NY'
+        }
        }, (results, status) => {
         if (results.length === 0) {
           ERRORS.NO_RESULTS(reject);
