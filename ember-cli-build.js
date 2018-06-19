@@ -17,5 +17,6 @@ module.exports = function(defaults) {
 
 
   app.import('node_modules/normalize.css/normalize.css');
+  app.import('vendor/shims/google.js');
   return app.toTree();
 };
