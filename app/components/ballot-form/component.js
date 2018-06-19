@@ -33,5 +33,13 @@ export default Component.extend({
     } catch({ error }) {
       this.set('error', error.message);
     }
-  })
+  }),
+
+  coordsToBallot(lat, lng) {
+    if (!this.canSubmit) {
+      return;
+    }
+    let { district } = this.districtLocator.pinPoint(lat, lng);
+    this.showBallot(district, this.party);
+  }
 });
