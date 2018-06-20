@@ -29,24 +29,6 @@
   }
 }
 
-.ballot-form__button-lineup {
-  @include layout($max-width: 250px);
-
-  list-style: none;
-  padding: 0;
-
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  > li {
-    flex-basis: 33%;
-    margin-bottom: 15px;
-  }
-
-  margin-bottom: 20px;
-}
-
 .ballot-form__submit {
   @include btn;
 
