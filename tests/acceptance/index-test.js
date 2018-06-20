@@ -29,6 +29,7 @@ module('Acceptance | index', function(hooks) {
   test('looking up an address', async function(assert) {
     const DISTRICT = 1;
     const LocatorStub = Service.extend({
+      loadDistricts: {perform() {}}, // eslint-disable-line
       findDistrict: task(function* () {
           yield;
           return {district: DISTRICT};

@@ -23,14 +23,6 @@ function sinonSetup() {
 module('Unit | Service | district-locator', function(hooks) {
   setupTest(hooks);
 
-  test('loads districts on init', function() {
-    sinonSetup.call(this);
-    this.stub(google.default.maps, 'Geocoder')
-    this.mock(this.wolfAPI).expects('add').withArgs('districts', 'foo');
-
-    run(() => this.owner.lookup('service:district-locator'));
-  });
-
   test('it calls find on wherewolf with the expected lat lng', async function() {
     sinonSetup.call(this);
 
