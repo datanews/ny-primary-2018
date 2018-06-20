@@ -16,7 +16,7 @@ module.exports = function(defaults) {
     },
     fingerprint: {
       enabled: env === 'production',
-      prepend: `${process.env.FINGERPRINT_PREPEND_URL}/${process.env.AWS_PREFIX}`
+      prepend: `${process.env.FINGERPRINT_PREPEND_URL}${process.env.AWS_PREFIX}/`
     },
     sourcemaps: {
       enabled: true
