@@ -1,3 +1,5 @@
+@import "../mixins/layout";
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -6,7 +8,10 @@
 
   .site-header__logo {
     flex: 1 1 20%;
-    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -21,4 +26,26 @@
 
 .city-limits-logo {
   max-width: 80px;
+}
+
+@include media('>=medium') {
+
+  .site-header {
+    @include layout($max-width: 900px);
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
+  .wnyc-logo {
+    max-width: 100px;
+  }
+
+  .gg-logo {
+    max-width: 200px;
+
+  }
+
+  .city-limits-logo {
+    max-width: 150px;
+  }
 }

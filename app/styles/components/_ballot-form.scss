@@ -3,6 +3,8 @@
 
 .ballot-form {
   text-align: center;
+
+  margin-bottom: 50px;
 }
 
 .ballot-form__sub {
@@ -29,6 +31,15 @@
   }
 }
 
+.ballot-form__parties {
+  @include media('>=medium') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+}
+
 .ballot-form__submit {
   @include btn;
 
@@ -43,6 +54,11 @@
 
   &[disabled] {
     opacity: 0.2;
+  }
+
+  @include media('>=medium') {
+    font-size: 25px;
+    padding: 15px 95px;
   }
 }
 

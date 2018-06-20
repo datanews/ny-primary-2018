@@ -15,6 +15,15 @@
     margin-bottom: 15px;
   }
 
+  @include media('>=medium') {
+    flex-wrap: nowrap;
+
+    > li {
+      flex-basis: auto;
+      margin: 0 5px;
+    }
+  }
+
   margin-bottom: 20px;
 }
 
@@ -41,5 +50,9 @@
 
   &:not(.active):hover {
     border-color: rgba(white, 0.2);
+  }
+
+  @include media('>=medium') {
+    width: 107px;
   }
 }

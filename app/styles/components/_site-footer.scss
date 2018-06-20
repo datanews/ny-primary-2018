@@ -1,5 +1,8 @@
+@import "../mixins/layout";
+
 .site-footer {
   padding: 0 15px;
+
   .pin {
     width: 22px;
     fill: white;
@@ -9,11 +12,23 @@
     fill: white;
     width: 35px;
   }
+
+  @include media('>=medium') {
+    display: flex;
+    justify-content: center;
+    @include layout($max-width: 800px);
+  }
 }
 
 .site-footer__row {
   display: flex;
   margin-bottom: 35px;
+
+  @include media('>=medium') {
+    flex: 1 0 auto;
+
+    justify-content: center;
+  }
 }
 
 .site-footer__icon {
