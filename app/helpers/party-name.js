@@ -4,22 +4,26 @@ const SHORT_MAP = {
   'dem': {
     short: 'dem',
     adj: 'Democratic',
-    formal: 'Democrat'
+    formal: 'Democrat',
+    symbol: '(D)',
   },
   'rep': {
     short: 'rep',
     adj: 'Republican',
-    formal: 'Republican'
+    formal: 'Republican',
+    symbol: '(R)',
   },
   'green': {
     short: 'green',
     adj: 'Green',
-    formal: 'Green'
+    formal: 'Green',
+    symbol: '(G)',
   },
   'ind': {
     short: 'ind',
     adj: 'Independent',
-    formal: 'Independent'
+    formal: 'Independent',
+    symbol: '(I)',
   },
 };
 
