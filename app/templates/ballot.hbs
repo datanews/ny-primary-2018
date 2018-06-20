@@ -1,11 +1,11 @@
 {{#ballot-switcher as |switcher|}}
   {{switcher.dropdown
-    districts=districts
-    selected=selected
-    onChange=(action update party)
+    districts=model.districts
+    selected=model.selected
+    onChange=(action update model.party)
   }}
 
-  {{#switcher.parties onClick=(action (mut party)) as |parties|}}
+  {{#switcher.parties onClick=(action (mut model.party)) party=model.party as |parties|}}
   <ul>
     <li>
       {{parties.button 'dem'}}
@@ -24,4 +24,4 @@
 
 {{/ballot-switcher}}
 
-{{race-detail race=model}}
+{{race-detail race=model.race}}
