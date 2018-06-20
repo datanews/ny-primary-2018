@@ -12,6 +12,7 @@ $breakpoints: (medium: 800px);
 @import "components/ballot-parties";
 @import "components/action-button";
 @import "components/ballot-switcher";
+@import "components/race-detail";
 
 .app-background {
   min-height: 100vh;
