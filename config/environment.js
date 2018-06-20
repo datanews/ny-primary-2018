@@ -46,6 +46,8 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
     ENV.googleAPIKey = null;
+    ENV.districtSource = 'http://example.com/district';
+    ENV.raceSource = 'http://example.com/race';
   }
 
   if (environment === 'production') {
