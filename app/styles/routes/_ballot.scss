@@ -1,4 +1,5 @@
 @import "../mixins/layout";
+@import "../mixins/forms";
 
 .ballot-layout {
   @include layout($max-width: 879px);
@@ -22,4 +23,45 @@
 
 .ballot-switcher-label {
   margin-right: 10px;
+}
+
+.more-races {
+  @include layout($max-width: 879px);
+  text-align: center;
+  margin-bottom: 95px;
+
+  p {
+    color: white;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.more-races__link {
+  margin-bottom: 45px;
+}
+
+.more-races__link a {
+  @include btn;
+
+  display: inline-block;
+  border: 2px solid $blue;
+  border-radius: 31px;
+  color: white;
+  padding: 10px 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+
+
+  @include media('>=medium') {
+    font-size: 25px;
+  }
+}
+
+.more-races__pin {
+  .pin {
+    fill: white;
+    width: 22px;
+  }
 }

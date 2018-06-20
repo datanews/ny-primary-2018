@@ -22,3 +22,18 @@
   {{race-detail race=model.race party=model.party}}
 
 </div>
+
+{{site-footer}}
+
+<div class="more-races">
+  <div class="more-races__link">
+    {{link-to 'See More Races' 'index'}}
+  </div>
+
+  <div class="more-races__pin">
+    {{partial 'icons/pin'}}
+  </div>
+  <p>
+    You mave have additional local races on your ballot.
+  </p>
+</div>
