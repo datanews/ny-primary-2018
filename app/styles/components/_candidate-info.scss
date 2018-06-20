@@ -7,7 +7,8 @@
 .candidate-info__image {
   overflow: hidden;
   border-radius: 50%;
-  margin-bottom: 15px;
+  width: fit-content;
+  margin: 0 auto 15px;
 }
 
 .candidate-info__name {
