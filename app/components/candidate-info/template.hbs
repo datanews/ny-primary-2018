@@ -1,5 +1,8 @@
 <div class="candidate-info__image">
-  <img src="/assets/images/candidates/{{candidate.firstName}}-{{candidate.surname}}.jpg" alt={{concat candidate.firstName candidate.surname}}>
+  <img
+  src="/assets/images/candidates/{{candidate.id}}.jpg"
+  srcset="/assets/images/candidates/{{candidate.id}}.jpg 2x"
+  alt={{concat candidate.firstName candidate.surname}}>
 </div>
 
 <div class="candidate-info__name">{{candidate.firstName}} {{candidate.surname}} {{party-name candidate.party 'symbol'}}</div>
