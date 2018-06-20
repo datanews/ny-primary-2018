@@ -45,4 +45,10 @@ module('Integration | Component | race-detail', function(hooks) {
 
     assert.equal(find('.race-detail').textContent.trim(), 'No Green Candidates Available');
   });
+
+  test('renders withouth a race', async function(assert) {
+    await render(hbs`{{race-detail party='green'}}`);
+
+    assert.equal(find('.race-detail').textContent.trim(), 'No Green Candidates Available');
+  })
 });
