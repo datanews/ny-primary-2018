@@ -1,0 +1,13 @@
+@mixin btn {
+  font-family: 'Open Sans', sans-serif;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+@mixin input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding: 0;
+}

@@ -1,1 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+$breakpoints: (medium: 800px);
+@import "_include-media";
+
+@import "base";
+
+@import "routes/index";
+
+@import "components/ballot-form";
+@import "components/ballot-parties";
+@import "components/action-button";
+
+.app-background {
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #222, rgba(#222, 0.25) 55%);
+}
+
 @import "ember-power-select";

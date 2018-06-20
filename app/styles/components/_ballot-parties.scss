@@ -1,0 +1,26 @@
+@import "../mixins/forms";
+
+.ballot-parties__button {
+  @include btn;
+
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+
+  border: 2px solid white;
+  border-radius: 31px;
+  padding: 5px 12px;
+
+  transition: all 125ms ease;
+
+  &.active {
+    color: black;
+    background-color: $yellow;
+    border-color: $yellow;
+  }
+
+  &:not(.active):hover {
+    border-color: rgba(white, 0.2);
+  }
+}

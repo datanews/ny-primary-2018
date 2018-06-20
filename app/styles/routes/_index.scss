@@ -1,0 +1,17 @@
+@import "../mixins/layout";
+
+.index-layout {
+  @include layout($max-width: 740px);
+}
+
+.index-header {
+  color: $yellow;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  @include media('>=medium') {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+}
