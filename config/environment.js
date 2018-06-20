@@ -53,6 +53,9 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.routerRoot = `/${process.env.AWS_PREFIX}/`;
     ENV.locationType = 'hash';
+    ENV.ifa = {
+      enabled: true
+    };
   }
 
   return ENV;

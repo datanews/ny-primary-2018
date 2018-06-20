@@ -16,6 +16,10 @@ module.exports = function(deployTarget) {
       bucket: process.env.AWS_BUCKET,
       region: process.env.AWS_REGION,
       prefix: process.env.AWS_PREFIX,
+      filePattern: function(context, pluginHelper) {
+        let filePattern = pluginHelper.readConfigDefault('filePattern');
+        return filePattern.replace('}', ',json}');
+      },
     },
     's3-index': {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,

@@ -1,7 +1,7 @@
 <div class="candidate-info__image">
   <img
-  src="/assets/images/candidates/{{candidate.id}}.jpg"
-  srcset="/assets/images/candidates/{{candidate.id}}.jpg 2x"
+  src={{image}}
+  srcset={{concat image ' 2x'}}
   alt={{concat candidate.firstName candidate.surname}}>
 </div>
 
