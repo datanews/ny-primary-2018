@@ -27,7 +27,7 @@ package.json.ember-try
 
 .env.deploy*
 !.env.deploy.sample
-.env
+.env*
 !.env.sample
 
 server/data
