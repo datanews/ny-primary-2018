@@ -1,0 +1,31 @@
+.candidate-info {
+  text-align: center;
+  color: white;
+  margin-bottom: 45px;
+}
+
+.candidate-info__image {
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.candidate-info__name {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.candidate-info__website {
+  display: block;
+  color: $blue;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.candidate-info__is-incumbent {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
