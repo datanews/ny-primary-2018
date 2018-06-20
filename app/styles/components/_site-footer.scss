@@ -1,0 +1,32 @@
+.site-footer {
+  padding: 0 15px;
+  .pin {
+    width: 22px;
+    fill: white;
+  }
+
+  .calendar {
+    fill: white;
+    width: 35px;
+  }
+}
+
+.site-footer__row {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.site-footer__icon {
+  flex-basis: 35px;
+  margin-right: 25px;
+  text-align: center;
+}
+
+.site-footer__body {
+  flex: 1;
+
+  a {
+    color: $blue;
+    font-size: 24px;
+  }
+}
