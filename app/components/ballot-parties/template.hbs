@@ -1,5 +1,22 @@
-{{yield (hash
-  button=(component 'ballot-parties/button'
-    party=party
-    onClick=(action handleClick))
-)}}
+{{#if (has-block)}}
+  {{yield (hash
+    button=(component 'ballot-parties/button'
+      party=party
+      onClick=(action handleClick))
+  )}}
+{{else}}
+  <ul class="ballot-parties__list">
+    <li>
+      {{ballot-parties/button 'dem'}}
+    </li>
+    <li>
+      {{ballot-parties/button 'rep'}}
+    </li>
+    <li>
+      {{ballot-parties/button 'green'}}
+    </li>
+    <li>
+      {{ballot-parties/button 'ind'}}
+    </li>
+  </ul>
+{{/if}}
