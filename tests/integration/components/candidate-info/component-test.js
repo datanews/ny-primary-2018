@@ -14,10 +14,10 @@ module('Integration | Component | candidate-info', function(hooks) {
     })
     await render(hbs`{{candidate-info candidate=candidate}}`);
 
-    assert.equal(find('.candidate-name').textContent.trim(), 'Foo Bar (R)');
-    assert.notOk(find('.candidate-incumbent'));
+    assert.equal(find('.candidate-info__name').textContent.trim(), 'Foo Bar (R)');
+    assert.notOk(find('.candidate-info__is-incumbent'));
 
     this.set('candidate.incumbent', 'yes');
-    assert.ok(find('.candidate-incumbent'));
+    assert.ok(find('.candidate-info__is-incumbent'));
   });
 });
