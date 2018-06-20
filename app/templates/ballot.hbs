@@ -5,7 +5,23 @@
     onChange=(action update party)
   }}
 
-  {{switcher.parties party=party}}
+  {{#switcher.parties onClick=(action (mut party)) as |parties|}}
+  <ul>
+    <li>
+      {{parties.button 'dem'}}
+    </li>
+    <li>
+      {{parties.button 'rep'}}
+    </li>
+    <li>
+      {{parties.button 'green'}}
+    </li>
+    <li>
+      {{parties.button 'ind'}}
+    </li>
+  </ul>
+  {{/switcher.parties}}
+
 {{/ballot-switcher}}
 
 {{race-detail race=model}}
