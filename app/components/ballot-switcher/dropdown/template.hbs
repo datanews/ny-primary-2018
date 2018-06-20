@@ -1,9 +1,9 @@
 {{#power-select
   options=districts
   selected=selected
-  onchange=(action onChange)
+  onchange=(action changeHandler)
   renderInPlace=true
   searchEnabled=false
   as |district|}}
-  Ballot for <span class="ballot-dropdown__selected">District {{district}}</span>
+ District {{district.id}}
 {{/power-select}}
