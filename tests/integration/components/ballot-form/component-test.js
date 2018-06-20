@@ -46,12 +46,12 @@ module('Integration | Component | ballot-form', function(hooks) {
   test('can only select 1 party', async function(assert) {
     await render(hbs`{{ballot-form}}`);
     await click('[data-test-selector=dem]');
-    assert.equal(findAll('.ballot-form__party.active').length, 1);
+    assert.equal(findAll('.ballot-parties__button.active').length, 1);
 
     await click('[data-test-selector=rep]');
 
     await click('[data-test-selector=ind]');
-    assert.equal(findAll('.ballot-form__party.active').length, 1);
+    assert.equal(findAll('.ballot-parties__button.active').length, 1);
   });
 
   test('must enter an address and select a party to activate form', async function(assert) {
@@ -70,7 +70,7 @@ module('Integration | Component | ballot-form', function(hooks) {
 
     assert.equal(findSpy.callCount, 0);
 
-    await click('.ballot-form__party');
+    await click('.ballot-parties__button');
     await click('.ballot-form__submit');
     assert.equal(findSpy.callCount, 1);
   });

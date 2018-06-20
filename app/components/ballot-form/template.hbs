@@ -11,20 +11,24 @@
 
 <div class="ballot-form__parties">
   <h3 class="ballot-form__sub">Choose your party:</h3>
+
+  {{#ballot-parties onClick=(action (mut party)) as |parties|}}
   <ul>
     <li>
-      {{ballot-form/party 'dem' onClick=(action (mut party)) party=party}}
+      {{parties.button 'dem'}}
     </li>
     <li>
-      {{ballot-form/party 'rep' onClick=(action (mut party)) party=party}}
+      {{parties.button 'rep'}}
     </li>
     <li>
-      {{ballot-form/party 'green' onClick=(action (mut party)) party=party}}
+      {{parties.button 'green'}}
     </li>
     <li>
-      {{ballot-form/party 'ind' onClick=(action (mut party)) party=party}}
+      {{parties.button 'ind'}}
     </li>
   </ul>
+  {{/ballot-parties}}
+
 </div>
 
 {{#if (and error (eq error.type 'MULTIPLE_LOCATIONS'))}}
