@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     districtSource: process.env.DISTRICT_GEO_JSON_SOURCE,
-    candidateSource: process.env.CANDIDATE_SOURCE,
+    raceSource: process.env.RACE_SOURCE,
     googleAPIKey: process.env.GOOGLE_API_KEY,
   };
 
