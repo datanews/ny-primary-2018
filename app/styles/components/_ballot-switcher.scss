@@ -1,0 +1,24 @@
+.ballot-switcher {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+}
+
+.ballot-switcher__dropdown {
+  .ember-power-select-trigger {
+    background-color: transparent;
+  }
+
+  .ember-power-select-selected-item {
+    margin: 0;
+  }
+
+  .ember-power-select-status-icon {
+    border-width: 7px 7px 0 7px;
+    right: 0;
+  }
+
+  .ember-power-select-dropdown {
+    color: black;
+  }
+}

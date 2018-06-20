@@ -10,10 +10,18 @@ $breakpoints: (medium: 800px);
 @import "components/ballot-form";
 @import "components/ballot-parties";
 @import "components/action-button";
+@import "components/ballot-switcher";
 
 .app-background {
   min-height: 100vh;
   background-image: linear-gradient(to top, #222, rgba(#222, 0.25) 55%);
 }
+
+$ember-power-select-default-border: none;
+$ember-power-select-default-border-radius: 0;
+$ember-power-select-trigger-border-bottom: 2px dashed $blue;
+$ember-power-select-option-padding: 0;
+$ember-power-select-trigger-ltr-padding: 0 25px 0 0;
+$ember-power-select-trigger-icon-color: $blue;
 
 @import "ember-power-select";
