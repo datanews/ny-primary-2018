@@ -65,6 +65,7 @@ module('Acceptance | index', function(hooks) {
 
   test('it show suggested addresses', async function(assert) {
     let service = this.owner.lookup('service:district-locator');
+    service.init = () => {};
     service.lookupAddress = function() {
       return Promise.reject(ERRORS.MULTIPLE_LOCATIONS(MULTIPLE_RESULTS));
     };
@@ -80,6 +81,7 @@ module('Acceptance | index', function(hooks) {
   test('it shows other error messages', async function(assert) {
     let service = this.owner.lookup('service:district-locator');
     let error = ERRORS.NO_RESULTS();
+    service.init = () => {};
     service.lookupAddress = function() {
       return Promise.reject(error);
     };
