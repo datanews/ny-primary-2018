@@ -14,7 +14,7 @@ import { task } from 'ember-concurrency';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 import ERRORS from 'ny-primary-2018/lib/errors';
-import { MULTIPLE_RESULTS } from '../fixtures/geocoder';
+import { MULTIPLE_RESULTS } from '../../mirage/fixtures/geocoder';
 
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);

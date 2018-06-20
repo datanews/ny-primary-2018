@@ -1,5 +1,5 @@
 import config from '../config/environment';
-import RACE_FIXUTRE from '../tests/fixtures/races';
+import RACE_FIXUTRE from './fixtures/races';
 
 export default function() {
 

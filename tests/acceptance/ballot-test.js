@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL, find, findAll, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import RACE_FIXUTRE from '../fixtures/races';
+import RACE_FIXUTRE from '../../mirage/fixtures/races';
 import { selectChoose } from 'ember-power-select/test-support';
 
 module('Acceptance | ballot', function(hooks) {

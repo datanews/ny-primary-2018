@@ -12,7 +12,7 @@ import {
   EMPTY_RESULT,
   MULTIPLE_RESULTS,
   NOT_NYC
-} from '../../fixtures/geocoder';
+} from '../../../mirage/fixtures/geocoder';
 
 function sinonSetup() {
   this.wolfAPI = {add() {}, find() {}};

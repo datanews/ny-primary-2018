@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { run } from '@ember/runloop';
-import RACE_FIXUTRE from '../../fixtures/races';
+import RACE_FIXUTRE from '../../../mirage/fixtures/races';
 
 module('Unit | Serializer | race', function(hooks) {
   setupTest(hooks);

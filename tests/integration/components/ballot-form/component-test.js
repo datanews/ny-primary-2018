@@ -15,7 +15,7 @@ import { task } from 'ember-concurrency';
 import sinon from 'sinon';
 
 import ERRORS from 'ny-primary-2018/lib/errors';
-import { MULTIPLE_RESULTS } from '../../../fixtures/geocoder';
+import { MULTIPLE_RESULTS } from '../../../../mirage/fixtures/geocoder';
 
 let findSpy;
 let district;
