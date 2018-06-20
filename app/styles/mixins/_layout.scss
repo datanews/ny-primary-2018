@@ -1,4 +1,4 @@
-@mixin layout($max-width: 800px) {
+@mixin layout($max-width: 740px) {
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 10px;

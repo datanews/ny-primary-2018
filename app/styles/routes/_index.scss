@@ -1,7 +1,7 @@
 @import "../mixins/layout";
 
 .index-layout {
-  @include layout($max-width: 740px);
+  @include layout;
 }
 
 .index-header {
