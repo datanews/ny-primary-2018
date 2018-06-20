@@ -1,6 +1,10 @@
 <div class="ballot-form__input">
   <h3 class="ballot-form__sub">Enter your address below</h3>
-  {{input value=address class="ballot-form__field" action=(action (perform addressToBallot address))}}
+  {{input
+    value=address
+    class="ballot-form__field"
+    placeholder="123 Broadway NY, NY"
+    action=(action (perform addressToBallot address))}}
 
   {{#if (and error (not-eq error.type 'MULTIPLE_LOCATIONS'))}}
   <div class="ballot-form__error">
@@ -13,7 +17,7 @@
   <h3 class="ballot-form__sub">Choose your party:</h3>
 
   {{#ballot-parties onClick=(action (mut party)) as |parties|}}
-  <ul>
+  <ul class="ballot-form__button-lineup">
     <li>
       {{parties.button 'dem'}}
     </li>
@@ -28,7 +32,6 @@
     </li>
   </ul>
   {{/ballot-parties}}
-
 </div>
 
 {{#if (and error (eq error.type 'MULTIPLE_LOCATIONS'))}}
@@ -38,11 +41,12 @@
 
   <ul class="ballot-form__suggestion-list">
   {{#each error.locations as |location|}}
+  <li class="ballot-form__suggestion">
     {{#action-button
-      class="ballot-form__suggestion"
       click=(action coordsToBallot location.lat location.lng)}}
       {{location.address}}
     {{/action-button}}
+  </li>
   {{/each}}
   </ul>
 </div>
@@ -53,5 +57,9 @@
   type="submit"
   disabled={{not canSubmit}}
   {{action (perform addressToBallot address)}}>
-  view candidates
+  View Candidates
 </button>
+
+<div class="ballot-form__footer">
+  <a href="https://www.wnyc.org/privacy" class="ballot-form__privacy">Privacy policy</a>
+</div>
