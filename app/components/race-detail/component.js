@@ -1,25 +1,21 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { partyName } from '../../helpers/party-name';
 
 export default Component.extend({
   classNames: ['race-detail'],
 
-  partyName: computed('party', function() {
-    switch(this.party) {
-      case 'dem':
-        return 'Democratic';
-      case 'rep':
-        return 'Republican';
-      case 'green':
-        return 'Green';
-      case 'ind':
-        return 'Independent';
+  candidates: computed('race.candidates', 'party', function() {
+    if (!this.race) {
+      return;
     }
+    let { candidates } = this.race;
+    return candidates.filterBy('party', partyName([ this.party, 'formal']));
   }),
 
   title: computed('race.district', function() {
     if (!this.race) {
-      return `No ${this.partyName} Candidates Available`;
+      return;
     }
     if (/^\d+$/.test(this.race.district)) {
       return `District ${this.race.district}`;

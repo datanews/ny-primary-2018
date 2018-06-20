@@ -1,5 +1,7 @@
-{{#if empty}}
-  <h3 class="race-empty">No {{partyName}} Candidates Available</h3>
+{{#if (or (not race) (not candidates))}}
+  <h3 class="race-title--empty">
+    No {{party-name party 'adj'}} Candidates Available
+  </h3>
 {{else}}
   <h3 class="race-title">{{title}}</h3>
 
@@ -8,7 +10,7 @@
   </p>
 
   <div class="race-candidates">
-  {{#each race.candidates as |candidate|}}
+  {{#each candidates as |candidate|}}
     <div class="race-candidate__item">
       {{candidate-info candidate=candidate}}
     </div>
