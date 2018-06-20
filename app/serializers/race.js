@@ -9,7 +9,7 @@ const makeRace = race => ({
     nutshell: race.nutshell
   },
   relationships: {
-    candidates: []
+    candidates: {data: []}
   }
 });
 
@@ -20,7 +20,7 @@ const makeCandidate = race => ({
     ...race
   },
   relationships: {
-    race: {id: race.race, type: 'race'}
+    race: {data: {id: race.race, type: 'race'}}
   }
 });
 
@@ -51,7 +51,7 @@ export default DS.JSONAPISerializer.extend({
     candidates.forEach(candidate => {
       let { race:raceId } = candidate.attributes;
       let race = races.find(r => r.id === raceId)
-      race.relationships.candidates.push({id: candidate.id, type: 'candidate'})
+      race.relationships.candidates.data.push({id: candidate.id, type: 'candidate'})
     });
 
     return {
