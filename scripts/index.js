@@ -12,7 +12,7 @@ const s3 = new aws.S3();
 
 getJSON().then(json => {
   if (['prod', 'staging'].includes(ENV)) {
-    let Body = zlib.deflateSync(Buffer.from(JSON.stringify(json)));
+    let Body = zlib.gzipSync(Buffer.from(JSON.stringify(json)));
     s3.putObject({
       Body,
       Bucket: process.env.AWS_BUCKET,
