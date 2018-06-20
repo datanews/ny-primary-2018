@@ -13,10 +13,12 @@ $breakpoints: (medium: 800px);
 @import "components/action-button";
 @import "components/ballot-switcher";
 @import "components/race-detail";
+@import "components/candidate-info";
 
 .app-background {
   min-height: 100vh;
   background-image: linear-gradient(to top, #222, rgba(#222, 0.25) 55%);
+  overflow: auto; // include nested margins in height
 }
 
 $ember-power-select-default-border: none;
