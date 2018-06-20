@@ -30,4 +30,10 @@ module('Integration | Component | race-detail', function(hooks) {
     assert.equal(find('.race-summary').textContent.trim(), RACE.nutshell);
     assert.equal(find('.race-title').textContent.trim(), `District ${RACE.district}`);
   });
+
+  test('empty state', async function(assert) {
+    await render(hbs`{{race-detail party='dem'}}`);
+
+    assert.equal(find('.race-detail').textContent.trim(), 'No Democratic Candidates Available');
+  })
 });

@@ -1,13 +1,17 @@
-<h3 class="race-title">{{title}}</h3>
+{{#if empty}}
+  <h3 class="race-empty">No {{partyName}} Candidates Available</h3>
+{{else}}
+  <h3 class="race-title">{{title}}</h3>
 
-<p class="race-summary">
-  {{race.nutshell}}
-</p>
+  <p class="race-summary">
+    {{race.nutshell}}
+  </p>
 
-<div class="race-candidates">
-{{#each race.candidates as |candidate|}}
-  <div class="race-candidate__item">
-    {{candidate-info candidate=candidate}}
+  <div class="race-candidates">
+  {{#each race.candidates as |candidate|}}
+    <div class="race-candidate__item">
+      {{candidate-info candidate=candidate}}
+    </div>
+  {{/each}}
   </div>
-{{/each}}
-</div>
+{{/if}}
