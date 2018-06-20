@@ -1,0 +1,24 @@
+@import "../mixins/layout";
+
+.ballot-layout {
+  @include layout;
+}
+
+.ballot-header {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $yellow;
+  margin-bottom: 30px;
+}
+
+.ballot-switcher-lockup {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.ballot-switcher-label {
+  margin-right: 10px;
+}

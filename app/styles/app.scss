@@ -6,6 +6,7 @@ $breakpoints: (medium: 800px);
 @import "base";
 
 @import "routes/index";
+@import "routes/ballot";
 
 @import "components/ballot-form";
 @import "components/ballot-parties";
