@@ -1,9 +1,11 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
+let rootURL = config.routerRoot || config.rootURL;
+
 const Router = EmberRouter.extend({
+  rootURL,
   location: config.locationType,
-  rootURL: config.rootURL
 });
 
 Router.map(function() {

@@ -51,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = `/${process.env.AWS_PREFIX}/`;
+    ENV.routerRoot = `/${process.env.AWS_PREFIX}/`;
   }
 
   return ENV;
