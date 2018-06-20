@@ -3,7 +3,7 @@
 
   border: 1px solid $yellow;
   border-top: none;
-  padding: 35px 15px 15px;
+  padding: 35px 23px 15px;
 
   &:before,
   &:after {
@@ -35,4 +35,21 @@
   font-size: 31px;
   font-weight: bold;
   color: $yellow;
+}
+
+.race-summary {
+  color: white;
+  font-size: 18px;
+  line-height: 1.67;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.race-candidates {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.race-candidate__item {
+  flex: 1 1 100%;
 }
