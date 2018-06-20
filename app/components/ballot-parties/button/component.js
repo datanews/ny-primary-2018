@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 
 const PartyButton = Component.extend({
   tagName: 'button',
-  classNames: ['ballot-form__party'],
+  classNames: ['ballot-parties__button'],
   classNameBindings: ['active'],
   attributeBindings: ['data-test-selector', 'type'],
 
@@ -19,7 +19,7 @@ const PartyButton = Component.extend({
     this.onClick(this.value);
   },
 
-  onClick() {}
+  onClick() {},
 });
 
 PartyButton.reopenClass({
