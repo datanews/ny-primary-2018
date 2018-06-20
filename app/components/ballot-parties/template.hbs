@@ -7,16 +7,16 @@
 {{else}}
   <ul class="ballot-parties__list">
     <li>
-      {{ballot-parties/button 'dem'}}
+      {{ballot-parties/button 'dem' onClick=(action handleClick) party=party}}
     </li>
     <li>
-      {{ballot-parties/button 'rep'}}
+      {{ballot-parties/button 'rep' onClick=(action handleClick) party=party}}
     </li>
     <li>
-      {{ballot-parties/button 'green'}}
+      {{ballot-parties/button 'green' onClick=(action handleClick) party=party}}
     </li>
     <li>
-      {{ballot-parties/button 'ind'}}
+      {{ballot-parties/button 'ind' onClick=(action handleClick) party=party}}
     </li>
   </ul>
 {{/if}}
