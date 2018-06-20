@@ -5,8 +5,7 @@ const makeRace = race => ({
   id: race.race,
   attributes: {
     district: race.race,
-    party: race.party,
-    nutshell: race.nutshell
+    ...race,
   },
   relationships: {
     candidates: {data: []}
@@ -17,7 +16,11 @@ const makeCandidate = race => ({
   type: 'candidate',
   id: `${race.firstName.toLowerCase()}-${race.surname.toLowerCase()}`.replace(/\s/g, '-'),
   attributes: {
-    ...race
+    firstName: race.firstName,
+    surname: race.surname,
+    incumbent: race.incumbent,
+    website: race.website,
+    party: race.party
   },
   relationships: {
     race: {data: {id: race.race, type: 'race'}}
@@ -49,7 +52,7 @@ export default DS.JSONAPISerializer.extend({
 
     // add candidates as relationships to their respective races
     candidates.forEach(candidate => {
-      let { race:raceId } = candidate.attributes;
+      let raceId = candidate.relationships.race.data.id;
       let race = races.find(r => r.id === raceId)
       race.relationships.candidates.data.push({id: candidate.id, type: 'candidate'})
     });
