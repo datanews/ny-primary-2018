@@ -29,4 +29,16 @@ module('Integration | Component | ballot-parties', function(hooks) {
 
     assert.equal(find('.ballot-parties__button.active').textContent.trim(), 'dem', 'sets an active button');
   });
+
+  test('can render with an activated party', async function(assert) {
+    await render(hbs`
+      {{#ballot-parties onClick=onClick party='rep' as |party|}}
+        {{party.button 'dem'}}
+        {{party.button 'rep'}}
+        {{party.button 'grn'}}
+        {{party.button 'ind'}}
+      {{/ballot-parties}}
+    `);
+    assert.equal(find('.ballot-parties__button.active').textContent.trim(), 'rep', 'sets an active button');
+  })
 });
