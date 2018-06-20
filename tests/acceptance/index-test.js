@@ -11,12 +11,14 @@ import { setupApplicationTest } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
 import Service from '@ember/service';
 import { task } from 'ember-concurrency';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 import ERRORS from 'ny-primary-2018/lib/errors';
 import { MULTIPLE_RESULTS } from '../fixtures/geocoder';
 
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('visiting /', async function(assert) {
     await visit('/');
