@@ -5,23 +5,8 @@
     onChange=(action update 'district')
   }}
 
-  {{#switcher.parties onClick=(action update 'party') party=model.party as |parties|}}
-  <ul>
-    <li>
-      {{parties.button 'dem'}}
-    </li>
-    <li>
-      {{parties.button 'rep'}}
-    </li>
-    <li>
-      {{parties.button 'green'}}
-    </li>
-    <li>
-      {{parties.button 'ind'}}
-    </li>
-  </ul>
-  {{/switcher.parties}}
 
 {{/ballot-switcher}}
 
 {{race-detail race=model.race party=model.party}}
+    {{switcher.parties onClick=(action update 'party') party=model.party}}
