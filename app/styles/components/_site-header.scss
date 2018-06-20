@@ -1,0 +1,24 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 45px 0;
+
+  .site-header__logo {
+    flex: 1 1 20%;
+    text-align: center;
+  }
+}
+
+.wnyc-logo {
+  max-width: 60px;
+}
+
+.gg-logo {
+  max-width: 90px;
+
+}
+
+.city-limits-logo {
+  max-width: 80px;
+}
