@@ -14,8 +14,7 @@ const inNYC = ({address_components}) => address_components
 export default Service.extend({
   init() {
     this._super(...arguments);
-    this.loadDistricts.perform();
-
+    
     let geocoder = new google.maps.Geocoder();
     this.set('geocoder', geocoder);
 
