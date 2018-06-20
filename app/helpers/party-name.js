@@ -31,22 +31,26 @@ const FORMAL_MAP = {
   'Democrat': {
     short: 'dem',
     adj: 'Democratic',
-    formal: 'Democrat'
+    formal: 'Democrat',
+    symbol: '(D)',
   },
   'Republican': {
     short: 'rep',
     adj: 'Republican',
-    formal: 'Republican'
+    formal: 'Republican',
+    symbol: '(R)',
   },
   'Green': {
     short: 'green',
     adj: 'Green',
-    formal: 'Green'
+    formal: 'Green',
+    symbol: '(G)',
   },
   'Independent': {
     short: 'ind',
     adj: 'Independent',
-    formal: 'Independent'
+    formal: 'Independent',
+    symbol: '(I)',
   },
 };
 
