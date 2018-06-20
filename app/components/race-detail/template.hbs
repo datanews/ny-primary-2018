@@ -1,1 +1,13 @@
-{{yield}}
+<h3 class="race-title">{{title}}</h3>
+
+<p class="race-summary">
+  {{race.nutshell}}
+</p>
+
+<div class="race-candidates">
+{{#each race.candidates as |candidate|}}
+  <div class="race-candidate__item">
+    {{candidate-info candidate=candidate}}
+  </div>
+{{/each}}
+</div>
