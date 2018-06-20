@@ -62,6 +62,7 @@
     "eslint-plugin-ember": "^5.0.0",
     "express": "^4.16.3",
     "glob": "^4.5.3",
+    "include-media": "^1.4.9",
     "loader.js": "^4.2.3",
     "morgan": "^1.9.0",
     "normalize.css": "^8.0.0",

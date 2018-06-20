@@ -6,6 +6,11 @@ const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    sassOptions: {
+      includePaths: [
+        'node_modules/include-media/dist'
+      ]
+    },
     babel: {
       plugins: ['transform-object-rest-spread']
     },
