@@ -10,7 +10,7 @@ module('Integration | Component | ballot-switcher/dropdown', function(hooks) {
   test('usage', async function(assert) {
     this.setProperties({
       foo: this.mock('on change handler').atLeast(1).withArgs('2'),
-      districts: [{id: 1}, {id: 2}],
+      districts: [{id: '1'}, {id: '2'}],
       selected: '1'
     });
     await render(hbs`
