@@ -38,10 +38,13 @@
 {{/if}}
 
 <button
-  class="ballot-form__submit"
+  class={{concat "ballot-form__submit" (if loading ' loading')}}
   type="submit"
   disabled={{not canSubmit}}
   {{action (perform addressToBallot address)}}>
+  {{#if loading}}
+    {{fa-icon "spinner" spin=true}}
+  {{/if}}
   View Candidates
 </button>
 

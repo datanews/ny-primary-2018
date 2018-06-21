@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { inject } from '@ember/service';
 import { task } from 'ember-concurrency';
 import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 
 export default Component.extend({
   tagName: 'form',
@@ -33,7 +34,7 @@ export default Component.extend({
     } catch({ error }) {
       this.set('error', error);
     }
-  }),
+  }).restartable(),
 
   coordsToBallot(lat, lng) {
     if (!this.canSubmit) {
@@ -41,5 +42,7 @@ export default Component.extend({
     }
     let { district } = this.districtLocator.pinPoint(lat, lng);
     this.showBallot(district, this.party);
-  }
+  },
+
+  loading: reads('addressToBallot.isRunning'),
 });

@@ -11,18 +11,10 @@
   color: white;
   font-size: 18px;
   margin-bottom: 15px;
-
-  @include media('>=medium') {
-    margin-bottom: 0;
-  }
 }
 
 .ballot-form__input {
   margin-bottom: 35px;
-
-  .ballot-form__sub {
-    margin-bottom: 15px;
-  }
 }
 
 .ballot-form__field {
@@ -46,6 +38,12 @@
     justify-content: center;
     margin-bottom: 35px;
   }
+
+  @include media('>=medium') {
+    .ballot-form__sub {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .ballot-form__submit {
@@ -60,6 +58,8 @@
   padding: 10px 30px;
   margin-bottom: 20px;
 
+  transition: all 125ms ease;
+
   &[disabled] {
     opacity: 0.2;
     cursor: default;
@@ -67,7 +67,11 @@
 
   @include media('>=medium') {
     font-size: 25px;
-    padding: 15px 95px;
+    padding: 15px 65px;
+  }
+
+  > i {
+    margin-right: 10px;
   }
 }
 
