@@ -15,7 +15,8 @@
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
     "start": "ember serve",
     "test": "ember test",
-    "refresh_data": "node -r dotenv/config scripts/update-data.js"
+    "refresh_data": "node -r dotenv/config scripts/update-data.js",
+    "cal": "node -r dotenv/config scripts/cal.js"
   },
   "devDependencies": {
     "aws-sdk": "^2.257.1",
