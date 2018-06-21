@@ -69,4 +69,8 @@
 
 .race-candidate__item {
   flex: 1 1 100%;
+
+  @include media('>=medium') {
+    flex-basis: 50%;
+  }
 }
