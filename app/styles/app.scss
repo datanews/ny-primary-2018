@@ -20,11 +20,14 @@ $breakpoints: (medium: 800px);
 .app-background {
   position: relative;
 
-  min-height: 100vh;
   background-color: #333;
   background-image: url('/assets/images/liberty.jpg');
   background-position: 20% top;
   background-size: 2584px 1512px;
   background-repeat: no-repeat;
   overflow: auto; // include nested margins in height
+
+  .not-embedded & {
+    min-height: 100vh;
+  }
 }
