@@ -12,7 +12,15 @@
     background-color: $yellow;
     position: absolute;
     top: 0;
-    width: 15%;
+    width: 20%;
+
+    @include media('>=425px') {
+      width: 25%;
+    }
+
+    @include media('>=650px') {
+      width: 30%;
+    }
   }
 
   &:before {
