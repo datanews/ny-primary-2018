@@ -4,6 +4,9 @@
 .ballot-parties__list {
   list-style: none;
   padding: 0 15px;
+  margin: 0 auto 20px;
+
+  max-width: 275px;
 
   display: flex;
   justify-content: center;
@@ -17,14 +20,13 @@
 
   @include media('>=medium') {
     flex-wrap: nowrap;
+    max-width: 350px;
 
     > li {
       flex-basis: auto;
       margin: 0 5px;
     }
   }
-
-  margin-bottom: 20px;
 }
 
 
