@@ -4,7 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 45px 0;
+  margin: 45px auto;
+  max-width: 318px;
 
   .site-header__logo {
     flex: 1 1 20%;
@@ -33,9 +34,7 @@
 @include media('>=medium') {
 
   .site-header {
-    @include layout($max-width: 900px);
-    margin-top: 45px;
-    margin-bottom: 45px;
+    max-width: 700px;
   }
 
   .wnyc-logo {
