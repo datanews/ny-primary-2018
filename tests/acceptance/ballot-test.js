@@ -17,7 +17,7 @@ module('Acceptance | ballot', function(hooks) {
 
     assert.equal(currentURL(), `/${race}/dem`);
     assert.ok(find('.ballot-switcher'), 'can see ballot switcher');
-    assert.equal(findAll('.ballot-parties__button').length, 4, '4 parties availble to choose from');
+    assert.equal(findAll('.ballot-parties__button').length, 2, '2 parties availble to choose from');
     assert.equal(find('.ballot-switcher__dropdown').textContent.trim(), `District ${race}`, 'correct district is loaded');
     assert.ok(find('.ballot-parties .active').textContent.trim(), 'Dem', 'correct party is highlighted');
 

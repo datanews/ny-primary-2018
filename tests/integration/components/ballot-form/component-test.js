@@ -49,8 +49,6 @@ module('Integration | Component | ballot-form', function(hooks) {
     assert.equal(findAll('.ballot-parties__button.active').length, 1);
 
     await click('[data-test-selector=rep]');
-
-    await click('[data-test-selector=ind]');
     assert.equal(findAll('.ballot-parties__button.active').length, 1);
   });
 
