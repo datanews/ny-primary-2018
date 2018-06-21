@@ -6,7 +6,8 @@ export default Route.extend({
   locator: inject('district-locator'),
 
   beforeModel() {
-    new pym.Child({polling: 200});
+    let embed = new pym.Child({polling: 200});
+    this.set('embed', embed);
     this.locator.loadDistricts.perform();
   },
   model() {
@@ -16,6 +17,7 @@ export default Route.extend({
   actions: {
     didTransition() {
       window.scrollTo(0, 0);
+      this.embed.scrollParentToChildPos(-100)
     }
   }
 });
