@@ -18,12 +18,32 @@ $breakpoints: (medium: 800px);
 @import "components/site-footer";
 
 .app-background {
+  position: relative;
+
   min-height: 100vh;
-  background-image: linear-gradient(to top, #222, rgba(#222, 0.25) 55%), url('/assets/images/liberty.jpg');
-  background-position: center;
-  background-size: cover;
+  background-color: #222;
+  background-image: url('/assets/images/liberty.jpg');
+  background-position: 20% top;
+  background-size: 2584px 1512px;
   background-repeat: no-repeat;
   overflow: auto; // include nested margins in height
+
+  > * {
+    position: relative;
+    z-index: 100;
+  }
+
+  &:after {
+    content: '';
+    background-image: linear-gradient(to top, #222, #222 25%, rgba(#222, 0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
 $ember-power-select-default-border: none;
