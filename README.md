@@ -91,3 +91,16 @@ Specify what it takes to deploy your app.
 - upload to S3
  - set Content Type header to `application/json`
  - set Content Encoding header to `gzip`
+
+## creating an ical file
+
+run the following from the command line
+
+```
+$ npm run cal
+```
+
+This will generate `primary.ics` in your current working directory and upload it to S3.
+
+Specify the name of the event with the `CAL_CONTENT` envvar.
+Specify the location of the uploaded file with the `AWS_BUCKET` and `AWS_PREFIX` envvars. `/assets/primary.ics` will be appended to create the final location.
