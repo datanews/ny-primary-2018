@@ -1,7 +1,7 @@
 <select class="ballot-switcher__field" onchange={{action changeHandler}}>
-{{#each districts as |district|}}
-  <option value={{district.id}} selected={{eq chosen district.id}}>
-    District {{district.id}}
+{{#each options as |option|}}
+  <option value={{option}} selected={{eq chosen option}}>
+    District {{option}}
   </option>
 {{/each}}
 </select>
