@@ -1,8 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click } from '@ember/test-helpers';
+import { render, click, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { selectChoose } from 'ember-power-select/test-support';
 
 module('Integration | Component | ballot-switcher', function(hooks) {
   setupRenderingTest(hooks);
@@ -12,7 +11,7 @@ module('Integration | Component | ballot-switcher', function(hooks) {
       party: 'dem',
       districts: [{id: 1}, {id: 2}],
       selected: [{id: 1}],
-      update: (party, district) => assert.deepEqual([party, district], ['rep', {id: 2}], 'update is called with current party and district')
+      update: (party, district) => assert.deepEqual([party, district], ['rep', '2'], 'update is called with current party and district')
     });
 
     await render(hbs`
@@ -44,6 +43,6 @@ module('Integration | Component | ballot-switcher', function(hooks) {
     `);
 
     await click('.ballot-parties li:nth-child(2) button');
-    await selectChoose('.ballot-switcher__dropdown', 'District 2');
+    await triggerEvent('.ballot-switcher__field option:nth-child(2)', 'change');
   });
 });

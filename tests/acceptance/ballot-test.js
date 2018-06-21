@@ -1,9 +1,8 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, find, findAll, click } from '@ember/test-helpers';
+import { visit, currentURL, find, findAll, click, triggerEvent } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import RACE_FIXUTRE from '../../mirage/fixtures/races';
-import { selectChoose } from 'ember-power-select/test-support';
 
 module('Acceptance | ballot', function(hooks) {
   setupApplicationTest(hooks);
@@ -18,7 +17,7 @@ module('Acceptance | ballot', function(hooks) {
     assert.equal(currentURL(), `/${race}/dem`);
     assert.ok(find('.ballot-switcher'), 'can see ballot switcher');
     assert.equal(findAll('.ballot-parties__button').length, 2, '2 parties availble to choose from');
-    assert.equal(find('.ballot-switcher__dropdown').textContent.trim(), `District ${race}`, 'correct district is loaded');
+    assert.equal(find('.ballot-switcher__field').selectedOptions[0].text, `District ${race}`, 'correct district is loaded');
     assert.ok(find('.ballot-parties .active').textContent.trim(), 'Dem', 'correct party is highlighted');
 
     assert.equal(findAll('.candidate-info').length, candidateCount);
@@ -35,7 +34,7 @@ module('Acceptance | ballot', function(hooks) {
 
     let candidateName1 = find('.candidate-info__name').textContent.trim();
 
-    await selectChoose('.ballot-switcher__dropdown', '.ember-power-select-option', 1);
+    await triggerEvent('.ballot-switcher__field option:nth-child(2)', 'change');
 
     assert.equal(currentURL(), `/${race2}/dem`, 'switch district');
 

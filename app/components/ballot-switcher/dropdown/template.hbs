@@ -1,9 +1,7 @@
-{{#power-select
-  options=districts
-  selected=selected
-  onchange=(action changeHandler)
-  renderInPlace=true
-  searchEnabled=false
-  as |district|}}
- District {{district.id}}
-{{/power-select}}
+<select class="ballot-switcher__field" onchange={{action changeHandler}}>
+{{#each districts as |district|}}
+  <option value={{district.id}} selected={{eq chosen district.id}}>
+    District {{district.id}}
+  </option>
+{{/each}}
+</select>

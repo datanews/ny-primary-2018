@@ -3,35 +3,42 @@
   font-size: 24px;
   color: white;
 
-  margin-bottom: 45px;
+  margin-bottom: 65px;
 }
 
 .ballot-switcher__dropdown {
   margin-bottom: 30px;
+  position: relative;
 
-  .ember-power-select-trigger {
-    background-color: transparent;
-  }
-
-  .ember-power-select-selected-item {
-    margin: 0;
-  }
-
-  .ember-power-select-status-icon {
-    border-width: 7px 7px 0 7px;
+  &:after {
+    content: '';
+    position: absolute;
     right: 0;
-  }
+    top: 0;
+    bottom: 0;
+    margin: auto;
 
-  .ember-power-select-dropdown {
-    color: black;
+    height: 0;
+    width: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: $blue;
   }
+}
 
-  .ember-basic-dropdown-content {
-  }
+.ballot-switcher__field {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px $blue dashed;
+  padding-bottom: 6px;
+  padding-right: 5px;
+  border-radius: 0;
 
-  .ember-power-select-option {
-    padding: 0 8px;
-    font-size: 18px;
-    font-weight: normal;
+  &:focus {
+    outline-offset: 2px;
   }
 }

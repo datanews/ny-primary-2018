@@ -1,10 +1,13 @@
 import Component from '@ember/component';
+import { reads } from '@ember/object/computed';
 
 export default Component.extend({
   classNames: ['ballot-switcher__dropdown'],
 
-  changeHandler(selected) {
-    this.set('selected', selected);
-    this.onChange(selected);
+  chosen: reads('selected'),
+
+  changeHandler(e) {
+    this.set('chosen', e.target.value);
+    this.onChange(e.target.value);
   }
 });

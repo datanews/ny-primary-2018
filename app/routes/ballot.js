@@ -19,7 +19,7 @@ export default Route.extend({
   update(type, value) {
     let { district, party } = this.paramsFor(this.routeName);
     if (type === 'district') {
-      district = value.get('id');
+      district = value;
     } else if (type === 'party') {
       party = value;
     }

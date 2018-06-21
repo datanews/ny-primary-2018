@@ -28,12 +28,3 @@ $breakpoints: (medium: 800px);
   background-repeat: no-repeat;
   overflow: auto; // include nested margins in height
 }
-
-$ember-power-select-default-border: none;
-$ember-power-select-default-border-radius: 0;
-$ember-power-select-trigger-border-bottom: 2px dashed $blue;
-$ember-power-select-option-padding: 0;
-$ember-power-select-trigger-ltr-padding: 0 25px 0 0;
-$ember-power-select-trigger-icon-color: $blue;
-
-@import "ember-power-select";
