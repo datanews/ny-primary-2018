@@ -11,6 +11,10 @@
   color: white;
   font-size: 18px;
   margin-bottom: 15px;
+
+  @include media('>=medium') {
+    margin-bottom: 0;
+  }
 }
 
 .ballot-form__input {
