@@ -39,5 +39,7 @@ module.exports = function(defaults) {
       {transformation: 'amd', as: 'pym'}
     ]
   });
+  app.import('node_modules/fastclick/lib/fastclick.js');
+  app.import('vendor/shims/fastclick.js');
   return app.toTree();
 };
