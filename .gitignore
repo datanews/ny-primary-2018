@@ -31,3 +31,5 @@ package.json.ember-try
 !.env.sample
 
 server/data
+
+primary.ics
