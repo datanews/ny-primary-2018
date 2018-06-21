@@ -6,12 +6,14 @@ const SHORT_MAP = {
     adj: 'Democratic',
     formal: 'Democrat',
     symbol: '(D)',
+    lowercaseF: 'democrat',
   },
   'rep': {
     short: 'rep',
     adj: 'Republican',
     formal: 'Republican',
     symbol: '(R)',
+    lowercaseF: 'republican',
   },
   'green': {
     short: 'green',
@@ -33,12 +35,14 @@ const FORMAL_MAP = {
     adj: 'Democratic',
     formal: 'Democrat',
     symbol: '(D)',
+    lowercaseF: 'democrat',
   },
   'Republican': {
     short: 'rep',
     adj: 'Republican',
     formal: 'Republican',
     symbol: '(R)',
+    lowercaseF: 'republican',
   },
   'Green': {
     short: 'green',

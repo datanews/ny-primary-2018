@@ -32,6 +32,6 @@ module('Unit | Serializer | race', function(hooks) {
     assert.equal(serialized.data.length, 2, 'two races');
     assert.equal(serialized.included.mapBy('type', 'candidate').length, 6, 'six candidates');
 
-    assert.equal(serialized.data[0].attributes.nutshell, RACE_FIXUTRE[0].nutshell, 'nutshell is pulled out into the race metadata');
+    assert.equal(serialized.data[0].attributes.nutshell.democrat, RACE_FIXUTRE[0].nutshell, 'nutshell is pulled out into the race metadata');
   })
 });

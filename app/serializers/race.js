@@ -1,11 +1,11 @@
 import DS from 'ember-data';
 
-const makeRace = race => ({
+const makeRace = (district = {}) => ({
   type: 'race',
-  id: race.race,
+  id: district.race,
   attributes: {
-    district: race.race,
-    ...race,
+    district: district.race,
+    ...district,
   },
   relationships: {
     candidates: {data: []}
@@ -29,15 +29,25 @@ const makeCandidate = race => ({
 
 export default DS.JSONAPISerializer.extend({
   normalizeFindAllResponse(store, klass, payload/*, id, requestType*/) {
-    // pull out races
-    let races = payload.reduce((races, race) => {
-      if (races.find(r => r.id === race.race)) {
-        return races;
-      } else {
-        races.push(makeRace(race));
-        return races;
+    // first group races by district
+    let districts = payload.reduce((races, race) => {
+      if (!races[race.race]) {
+        races[race.race] = [];
       }
-    }, []);
+      races[race.race].push(race);
+      return races;
+    }, {});
+    // merge
+    let races = Object.keys(districts).map(id => {
+      let dem = districts[id].find(d => d.party === 'Democrat');
+      let rep = districts[id].find(d => d.party === 'Republican');
+      let race =  makeRace(dem);
+      race.attributes.nutshell = {
+        democrat: dem ? dem.nutshell : '',
+        republican: rep ? rep.nutshell : ''
+      };
+      return race;
+    })
 
     // pull out candidates
     let candidates = payload.reduce((candidates, race) => {

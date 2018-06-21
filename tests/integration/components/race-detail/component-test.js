@@ -9,7 +9,10 @@ module('Integration | Component | race-detail', function(hooks) {
   test('it renders', async function(assert) {
     const RACE = {
       district: 2,
-      nutshell: 'Foo',
+      nutshell: {
+        democrat: 'Foo',
+        republican: 'Bar',
+      },
       party: 'Democrat',
       candidates: [{
         firstName: 'Bar',
@@ -35,10 +38,11 @@ module('Integration | Component | race-detail', function(hooks) {
     await render(hbs`{{race-detail race=race party='dem'}}`);
 
     assert.equal(findAll('.race-candidate__item').length, 2, 'should only show democrat candidates');
-    assert.equal(find('.race-summary').textContent.trim(), RACE.nutshell);
+    assert.equal(find('.race-summary').textContent.trim(), RACE.nutshell.democrat);
     assert.equal(find('.race-title').textContent.trim(), `District ${RACE.district}`);
 
     await render(hbs`{{race-detail race=race party='rep'}}`);
+    assert.equal(find('.race-summary').textContent.trim(), RACE.nutshell.republican);
     assert.equal(findAll('.race-candidate__item').length, 1, 'should only show republican candidates');
 
     await render(hbs`{{race-detail race=race party='green'}}`);
