@@ -25,6 +25,8 @@ module.exports = function(environment) {
     districtSource: process.env.DISTRICT_GEO_JSON_SOURCE,
     raceSource: process.env.RACE_SOURCE,
     googleAPIKey: process.env.GOOGLE_API_KEY,
+
+    calendarLink: `${process.env.FINGERPRINT_PREPEND_URL}${process.env.AWS_PREFIX}/assets/primary.ics`
   };
 
   if (environment === 'development') {
