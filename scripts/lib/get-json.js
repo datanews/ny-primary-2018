@@ -1,7 +1,7 @@
 const request = require('request-promise-native');
 const csv = require('csvtojson');
 
-const KEY = '14EX_2QTxfJyQAiN4rONSkQrY6Brb9Xajrcwl1CBwp2M';
+const KEY = process.env.GOOGLE_SHEET_ID;
 const GOOGLE_URL = `https://docs.google.com/spreadsheets/d/${KEY}/pub?output=csv`;
 
 module.exports = async function() {
