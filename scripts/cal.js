@@ -16,7 +16,7 @@ function createICal(content) {
   content = content || '';
 
   const cal = ical();
-  const date = moment({year: 2018, month: 5, day: 26});
+  const date = moment({year: 2018, month: 9, day: 13});
   cal.createEvent({
     start: date.hour(6).toDate(),
     end: date.hour(21).toDate(),
