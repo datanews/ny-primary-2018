@@ -51,6 +51,20 @@ jobs:
       - store_test_results:
           path: test-results/
 
+  calendar-staging:
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_node
+      - run: AWS_BUCKET=$STAGING_AWS_BUCKET npm run cal
+
+  calendar-prod:
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_node
+      - run: AWS_BUCKET=$PROD_AWS_BUCKET npm run cal
+
   deploy_production:
     <<: *defaults
     environment:
@@ -105,6 +119,7 @@ workflows:
       - deploy_production:
           requires:
             - test
+            - calendar-prod
           filters:
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+/
@@ -113,6 +128,7 @@ workflows:
       - deploy_staging:
           requires:
             - test
+            - calendar-staging
           filters:
             branches:
               only: master
