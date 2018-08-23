@@ -46,11 +46,12 @@ function uploadToS3(string, filename) {
 
 function main() {
   const filename = `${process.env.CAL_FILENAME || 'primary'}.ics`;
-  const cal = createICal(process.env.CAL_CONTENT);
+  const cal = createICal(process.env.CAL_CONTENT || 'NY Primary 2018');
   writeOut(cal.toString(), filename);
   console.log(filename, 'written to cwd'); // eslint-disable-line
   uploadToS3(cal.toString(), filename)
-    .then(() => console.log(filename, 'uploaded to S3')); // eslint-disable-line
+    .then(() => console.log(filename, 'uploaded to S3')) // eslint-disable-line
+    .catch(error => console.log('caught', error.message));
 }
 
 main();
