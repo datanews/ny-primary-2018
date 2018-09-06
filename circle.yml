@@ -119,7 +119,6 @@ workflows:
       - deploy_production:
           requires:
             - test
-            - calendar-prod
           filters:
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+/
@@ -128,7 +127,6 @@ workflows:
       - deploy_staging:
           requires:
             - test
-            - calendar-staging
           filters:
             branches:
               only: master
