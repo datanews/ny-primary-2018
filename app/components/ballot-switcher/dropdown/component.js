@@ -7,7 +7,7 @@ export default Component.extend({
 
   chosen: reads('selected'),
   options: computed('districts', 'chosen', function() {
-    let ids = this.districts.mapBy('id');
+    let ids = this.districts.mapBy('id').filter(a => /\d/.test(a));
     if (!ids.includes(this.chosen)) {
       ids.push(this.chosen);
       ids.sort((a, b) => Number(a) - Number(b));

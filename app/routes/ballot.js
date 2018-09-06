@@ -14,7 +14,7 @@ export default Route.extend({
     return {
       races,
       party,
-      selected: races,
+      selected: district,
       districts: this.store.peekAll("race")
     };
   },
