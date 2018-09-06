@@ -6,10 +6,10 @@
 
     <div class="ballot-switcher-lockup">
       <span class="ballot-switcher-label">
-        Ballot for
+        Switch district:
       </span>
       {{switcher.dropdown
-        districts=model.districts
+        races=model.allDistrictRaces
         selected=model.selected
         onChange=(action update 'district')
       }}

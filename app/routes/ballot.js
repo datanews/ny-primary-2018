@@ -11,8 +11,19 @@ export default Route.extend({
         return true;
       }
     });
+    let allDistrictRaces = this.store
+      .peekAll("race")
+      .filter(function(r) {
+        return /\d/.test(r.get("id"));
+      })
+      .sort((a, b) =>
+        `${a.get("raceTitle")} ${a.get("id")}`.localeCompare(
+          `${b.get("raceTitle")} ${b.get("id")}`
+        )
+      );
     return {
       races,
+      allDistrictRaces,
       party,
       selected: district,
       districts: this.store.peekAll("race")
