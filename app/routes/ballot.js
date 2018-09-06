@@ -24,6 +24,7 @@ export default Route.extend({
     return {
       races,
       allDistrictRaces,
+      hasDistrictRaces: (allDistrictRaces.mapBy('id').indexOf(district) > -1),
       party,
       selected: district,
       districts: this.store.peekAll("race")
