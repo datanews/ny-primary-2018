@@ -23,9 +23,9 @@ export default Component.extend({
       return;
     }
     if (/^\d+$/.test(this.race.district)) {
-      return `District ${this.race.district}`;
+      return `${this.race.raceTitle} - District ${this.race.district}`;
     } else {
-      return this.race.district;
+      return this.race.raceTitle;
     }
   })
 });

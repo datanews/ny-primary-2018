@@ -10,6 +10,7 @@ export default DS.Model.extend({
   ggLink:       DS.attr('string'),
   clHeadline:   DS.attr('string'),
   clLink:       DS.attr('string'),
+  raceTitle:    DS.attr('string'),
 
   nutshell:     DS.attr(),
 
