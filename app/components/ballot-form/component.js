@@ -10,7 +10,7 @@ export default Component.extend({
 
   router:          inject(),
   districtLocator: inject(),
-  party: null,
+  party: "dem",
   address: null,
 
   submit: e => e.preventDefault(),

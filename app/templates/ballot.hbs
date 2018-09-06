@@ -1,25 +1,25 @@
 <div class="ballot-layout">
 
-  <h2 class="ballot-header">NYC 2018 Primary Voter Guide</h2>
+  <h2 class="ballot-header">2018 NY State Primary Election Voter Guide</h2>
 
   {{#ballot-switcher as |switcher|}}
 
     <div class="ballot-switcher-lockup">
       <span class="ballot-switcher-label">
-        Ballot for
+        Switch district:
       </span>
       {{switcher.dropdown
-        districts=model.districts
-        selected=model.selected.id
+        races=model.allDistrictRaces
+        selected=model.selected
         onChange=(action update 'district')
       }}
     </div>
 
-    {{switcher.parties onClick=(action update 'party') party=model.party}}
-
   {{/ballot-switcher}}
 
-  {{race-detail race=model.race party=model.party}}
+  {{#each model.races as |race|}}
+    {{race-detail race=race party=model.party}}
+  {{/each}}
 
 </div>
 

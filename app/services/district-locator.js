@@ -14,7 +14,7 @@ const inNYC = ({address_components}) => address_components
 export default Service.extend({
   init() {
     this._super(...arguments);
-    
+
     let geocoder = new google.maps.Geocoder();
     this.set('geocoder', geocoder);
 
@@ -30,7 +30,7 @@ export default Service.extend({
     if (!districts) {
       return;
     }
-    this.ww.add('districts', districts);
+    this.ww.addAll(districts);
   }),
 
   findDistrict: task(function * (address) {
@@ -74,7 +74,7 @@ export default Service.extend({
   },
 
   pinPoint(lat, lng) {
-    return this.ww.find({lat, lng}, {layer: 'districts'}) || {};
+    return this.ww.find({lat, lng}, {layer: 'assembly'}) || {};
   }
 
 });

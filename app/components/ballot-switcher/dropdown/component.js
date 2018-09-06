@@ -6,13 +6,13 @@ export default Component.extend({
   classNames: ['ballot-switcher__dropdown'],
 
   chosen: reads('selected'),
-  options: computed('districts', 'chosen', function() {
-    let ids = this.districts.mapBy('id');
+  options: computed('races', 'chosen', function() {
+    let races = this.races;
+    let ids = this.races.mapBy('id').filter(a => /\d/.test(a));
     if (!ids.includes(this.chosen)) {
-      ids.push(this.chosen);
-      ids.sort((a, b) => Number(a) - Number(b));
+      races.push({id: this.chosen, raceTitle: `District`});
     }
-    return ids;
+    return races;
   }),
 
   changeHandler(e) {

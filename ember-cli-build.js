@@ -26,6 +26,7 @@ module.exports = function(defaults) {
   });
 
 
+  app.import('node_modules/topojson/dist/topojson.min.js');
   app.import('node_modules/normalize.css/normalize.css');
   app.import('node_modules/wherewolf/wherewolf.js');
 
