@@ -19,7 +19,9 @@
 
   {{/ballot-switcher}}
 
-  {{race-detail race=model.race party=model.party}}
+  {{#each model.races as |race|}}
+    {{race-detail race=race party=model.party}}
+  {{/each}}
 
 </div>
 
