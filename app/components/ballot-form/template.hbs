@@ -13,12 +13,6 @@
   {{/if}}
 </div>
 
-<div class="ballot-form__parties">
-  <h3 class="ballot-form__sub">Choose a party:</h3>
-
-  {{ballot-parties onClick=(action (mut party))}}
-</div>
-
 {{#if (and error (eq error.type 'MULTIPLE_LOCATIONS'))}}
 <div class="ballot-form__suggestions">
 
