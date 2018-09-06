@@ -43,16 +43,16 @@ module('Integration | Component | ballot-form', function(hooks) {
     assert.ok(find('.ballot-form'));
   });
 
-  test('can only select 1 party', async function(assert) {
-    await render(hbs`{{ballot-form}}`);
-    await click('[data-test-selector=dem]');
-    assert.equal(findAll('.ballot-parties__button.active').length, 1);
+  // test('can only select 1 party', async function(assert) {
+  //   await render(hbs`{{ballot-form}}`);
+  //   // await click('[data-test-selector=dem]');
+  //   assert.equal(findAll('.ballot-parties__button.active').length, 1);
 
-    await click('[data-test-selector=rep]');
-    assert.equal(findAll('.ballot-parties__button.active').length, 1);
-  });
+  //   await click('[data-test-selector=rep]');
+  //   assert.equal(findAll('.ballot-parties__button.active').length, 1);
+  // });
 
-  test('must enter an address and select a party to activate form', async function(assert) {
+  test('must enter an address, dem is pre-selected', async function(assert) {
     this.owner.register('service:router', RouterStub);
 
     await render(hbs`{{ballot-form}}`);
@@ -66,10 +66,6 @@ module('Integration | Component | ballot-form', function(hooks) {
     await triggerKeyEvent('.ballot-form__field', 'keypress', 'Enter');
     await click('.ballot-form__submit');
 
-    assert.equal(findSpy.callCount, 0);
-
-    await click('.ballot-parties__button');
-    await click('.ballot-form__submit');
     assert.equal(findSpy.callCount, 1);
   });
 
@@ -81,7 +77,7 @@ module('Integration | Component | ballot-form', function(hooks) {
 
     await render(hbs`{{ballot-form showBallot=showBallot}}`);
     await fillIn('.ballot-form__field', '123 main street')
-    await click('[data-test-selector=dem]');
+    // await click('[data-test-selector=dem]');
 
     await click('.ballot-form__submit');
     assert.ok(spy.calledWith(district, PARTY));

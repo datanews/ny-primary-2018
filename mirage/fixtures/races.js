@@ -3,6 +3,7 @@
 // district 11 has 4 candidates, 2 dem and 2 rep
 export default [{
     "race": "2",
+    "raceTitle": "District",
     "party": "Democrat",
     "firstName": "Du Wayne",
     "surname": "Gregory",
@@ -19,6 +20,7 @@ export default [{
   },
   {
     "race": "2",
+    "raceTitle": "District",
     "party": "Democrat",
     "firstName": "Liuba",
     "surname": "Grechen Shirley",
@@ -35,6 +37,7 @@ export default [{
   },
   {
     "race": "11",
+    "raceTitle": "District",
     "party": "Democrat",
     "firstName": "Paul",
     "surname": "Sperling",
@@ -51,6 +54,7 @@ export default [{
   },
   {
     "race": "11",
+    "raceTitle": "District",
     "party": "Democrat",
     "firstName": "Omar",
     "surname": "Vaid",
@@ -67,6 +71,7 @@ export default [{
   },
   {
     "race": "11",
+    "raceTitle": "District",
     "party": "Republican",
     "firstName": "Daniel",
     "surname": "Donovan",
@@ -83,6 +88,7 @@ export default [{
   },
   {
     "race": "11",
+    "raceTitle": "District",
     "party": "Republican",
     "firstName": "Michael",
     "surname": "Grimm",

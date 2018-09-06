@@ -40,7 +40,7 @@ module('Acceptance | index', function(hooks) {
     await visit('/');
 
     await fillIn('.ballot-form input[type=text]', '123 main street');
-    await click('[data-test-selector=dem]');
+    // await click('[data-test-selector=dem]');
     await click('.ballot-form__submit');
 
     assert.equal(currentURL(), `/${DISTRICT}/dem`);
@@ -58,7 +58,7 @@ module('Acceptance | index', function(hooks) {
     assert.equal(currentURL(), '/');
 
     await fillIn('.ballot-form input[type=text]', '');
-    await click('[data-test-selector=dem]');
+    // await click('[data-test-selector=dem]');
     await click('.ballot-form__submit');
 
     assert.equal(currentURL(), '/');
@@ -73,7 +73,7 @@ module('Acceptance | index', function(hooks) {
 
     await visit('/');
     await fillIn('.ballot-form input[type=text]', '123 main street');
-    await click('[data-test-selector=dem]');
+    // await click('[data-test-selector=dem]');
     await click('.ballot-form__submit');
 
     assert.equal(findAll('.ballot-form__suggestion').length, MULTIPLE_RESULTS.length);
@@ -89,7 +89,7 @@ module('Acceptance | index', function(hooks) {
 
     await visit('/');
     await fillIn('.ballot-form input[type=text]', '123 main street');
-    await click('[data-test-selector=dem]');
+    // await click('[data-test-selector=dem]');
     await click('.ballot-form__submit');
 
     assert.equal(find('.ballot-form__error').textContent.trim(), error.error.message);
