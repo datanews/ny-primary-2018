@@ -1,0 +1,12 @@
+<div class="ballot-layout">
+
+  <h2 class="ballot-header">2018 NY State Primary Election Voter Guide</h2>
+
+  <div class="all-races__container">
+    {{#each sortedRaces as |race|}}
+      {{race-detail race=race party="dem"}}
+    {{/each}}
+  </div>
+</div>
+
+{{site-footer}}
