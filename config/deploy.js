@@ -3,7 +3,8 @@
 module.exports = function(deployTarget) {
   var ENV = {
     build: {
-      environment: 'production'
+      environment: 'production',
+      allowOverwrite: true
     },
 
     gzip: {
