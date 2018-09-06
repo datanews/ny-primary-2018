@@ -4,7 +4,7 @@
   border: 1px solid $yellow;
   border-top: none;
   padding: 35px 23px 15px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   &:before,
   &:after {
@@ -13,7 +13,11 @@
     background-color: $yellow;
     position: absolute;
     top: 0;
-    width: 5%;
+    width: 2%;
+
+    @include media('>=500px') {
+      width: 10%;
+    }
 
     @include media('>=700px') {
       width: 20%;
