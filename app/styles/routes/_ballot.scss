@@ -20,6 +20,13 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
+
+  @include media('<=500px') {
+    align-items: center;
+    flex-direction: column;
+    height: 95px;
+    justify-content: space-around;
+  }
 }
 
 .ballot-switcher-label {
