@@ -29,7 +29,7 @@ export default Component.extend({
     }
     try {
       this.set('error', null);
-      let { district } = yield this.districtLocator.findDistrict.linked().perform(address);
+      let { saDistrict, ssDistrict } = yield this.districtLocator.findDistrict.linked().perform(address);
       this.showBallot(district, this.party);
     } catch({ error }) {
       this.set('error', error);
