@@ -9,7 +9,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('ballot', {path: ':district/:party'});
+  this.route('ballot', {path: ':sa_district/:ss_district/:party'});
   this.route('all-races');
 });
 

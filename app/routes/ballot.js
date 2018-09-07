@@ -2,20 +2,15 @@ import Route from "@ember/routing/route";
 import { bind } from "@ember/runloop";
 
 export default Route.extend({
-  model({ district, party }) {
+  model({ sa_district, ss_district, party }) {
     let races = this.store.peekAll("race").filter(function(race) {
-      if (race.get("id") === district) {
+      if (race.get("id") === sa_district) {
+        return true;
+      }
+      if (race.get("id") === ss_district) {
         return true;
       }
       if (race.get("type") === "statewide") {
-        return true;
-      }
-
-      // Hardcode state senate 13 -> assembly 30 + 39 due to overlapping maps
-      if (
-        district === "13" &&
-        (race.get("id") === "30" || race.get("id") === "39")
-      ) {
         return true;
       }
     });
@@ -32,9 +27,9 @@ export default Route.extend({
     return {
       races,
       allDistrictRaces,
-      hasDistrictRaces: allDistrictRaces.mapBy("id").indexOf(district) > -1,
+      hasDistrictRaces: allDistrictRaces.mapBy("id").indexOf(sa_district) > -1,
       party,
-      selected: district,
+      selected: sa_district,
       districts: this.store.peekAll("race")
     };
   },
