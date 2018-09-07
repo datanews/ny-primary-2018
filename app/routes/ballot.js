@@ -10,6 +10,14 @@ export default Route.extend({
       if (race.get("type") === "statewide") {
         return true;
       }
+
+      // Hardcode state senate 13 -> assembly 30 + 39 due to overlapping maps
+      if (
+        district === "13" &&
+        (race.get("id") === "30" || race.get("id") === "39")
+      ) {
+        return true;
+      }
     });
     let allDistrictRaces = this.store
       .peekAll("race")
@@ -24,7 +32,7 @@ export default Route.extend({
     return {
       races,
       allDistrictRaces,
-      hasDistrictRaces: (allDistrictRaces.mapBy('id').indexOf(district) > -1),
+      hasDistrictRaces: allDistrictRaces.mapBy("id").indexOf(district) > -1,
       party,
       selected: district,
       districts: this.store.peekAll("race")
