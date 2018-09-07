@@ -74,7 +74,7 @@ export default Service.extend({
   },
 
   pinPoint(lat, lng) {
-    return this.ww.find({lat, lng}, {layer: 'assembly'}) || {};
+    return this.ww.find({lat, lng}, {layer: 'senate'}) || {};
   }
 
 });
