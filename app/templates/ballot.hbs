@@ -2,6 +2,7 @@
 
   <h2 class="ballot-header">2018 NY State Primary Election Voter Guide</h2>
 
+
   {{#ballot-switcher as |switcher|}}
 
     <div class="ballot-switcher-lockup">
@@ -14,8 +15,14 @@
         onChange=(action update 'district')
       }}
     </div>
-
   {{/ballot-switcher}}
+
+    <p class="ballot-switcher__ss13-warning">
+      {{#if (eq model.selected "13")}}
+        NOTE: You will only be voting in one assembly race on election day,
+        depending on your district.
+      {{/if}}
+    </p>
 
   {{#each model.races as |race|}}
     {{race-detail race=race party=model.party}}
