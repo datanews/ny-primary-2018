@@ -27,12 +27,13 @@ module('Acceptance | index', function(hooks) {
   });
 
   test('looking up an address', async function(assert) {
-    const DISTRICT = 1;
+    const SA_DISTRICT = 1;
+    const SS_DISTRICT = 1;
     const LocatorStub = Service.extend({
       loadDistricts: {perform() {}}, // eslint-disable-line
       findDistrict: task(function* () {
           yield;
-          return {district: DISTRICT};
+          return {saDistrict: SA_DISTRICT, ssDistrict: SS_DISTRICT};
       })
     });
 
@@ -43,7 +44,7 @@ module('Acceptance | index', function(hooks) {
     // await click('[data-test-selector=dem]');
     await click('.ballot-form__submit');
 
-    assert.equal(currentURL(), `/${DISTRICT}/dem`);
+    assert.equal(currentURL(), `/${SA_DISTRICT}/${SS_DISTRICT}/dem`);
   });
 
   test('must select a party and input an address before submitting', async function(assert) {

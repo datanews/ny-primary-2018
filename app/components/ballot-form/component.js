@@ -19,8 +19,8 @@ export default Component.extend({
     return this.party && this.address;
   }),
 
-  showBallot(district, party) {
-    this.router.transitionTo('ballot', district, party);
+  showBallot(saDistrict, ssDistrict, party) {
+    this.router.transitionTo('ballot', saDistrict, ssDistrict, party);
   },
 
   addressToBallot: task(function * (address) {
@@ -29,8 +29,8 @@ export default Component.extend({
     }
     try {
       this.set('error', null);
-      let { district } = yield this.districtLocator.findDistrict.linked().perform(address);
-      this.showBallot(district, this.party);
+      let { saDistrict, ssDistrict } = yield this.districtLocator.findDistrict.linked().perform(address);
+      this.showBallot(saDistrict, ssDistrict, this.party);
     } catch({ error }) {
       this.set('error', error);
     }

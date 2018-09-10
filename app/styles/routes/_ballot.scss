@@ -36,7 +36,8 @@
 .more-races {
   @include layout($max-width: 879px);
   text-align: center;
-  margin-bottom: 95px;
+  margin-bottom: 65px;
+  margin-top: 40px;
 
   p {
     color: white;

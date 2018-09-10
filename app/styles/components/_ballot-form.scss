@@ -7,6 +7,15 @@
   margin-bottom: 50px;
 }
 
+.ballot-form_all-races-link {
+  color: white;
+
+  &:hover {
+    opacity: 0.8;
+    color: #f0f0ff;
+  }
+}
+
 .ballot-form__sub {
   color: white;
   font-size: 18px;

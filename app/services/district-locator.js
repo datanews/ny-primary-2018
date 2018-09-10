@@ -35,10 +35,12 @@ export default Service.extend({
 
   findDistrict: task(function * (address) {
     let { lat, lng, formattedAddress } = yield this.lookupAddress(address);
-    let results = this.pinPoint(lat, lng);
+    let saResults = this.pinPoint(lat, lng, 'assembly');
+    let ssResults = this.pinPoint(lat, lng, 'senate');
     return {
       formattedAddress,
-      ...results
+      saDistrict: saResults.district,
+      ssDistrict: ssResults.district
     }
   }),
 
@@ -73,8 +75,8 @@ export default Service.extend({
     });
   },
 
-  pinPoint(lat, lng) {
-    return this.ww.find({lat, lng}, {layer: 'senate'}) || {};
+  pinPoint(lat, lng, mapType) {
+    return this.ww.find({lat, lng}, {layer: mapType}) || {};
   }
 
 });

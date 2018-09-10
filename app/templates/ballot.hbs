@@ -3,19 +3,12 @@
   <h2 class="ballot-header">2018 NY State Primary Election Voter Guide</h2>
 
 
-  {{#ballot-switcher as |switcher|}}
-
-    <div class="ballot-switcher-lockup">
-      <span class="ballot-switcher-label">
-        View Other Races:
-      </span>
-      {{switcher.dropdown
-        races=model.allDistrictRaces
-        selected=model.selected
-        onChange=(action update 'district')
-      }}
+    <div class="more-races">
+      <div class="more-races__link">
+        {{link-to 'View All Races' 'all-races'}}
+      </div>
     </div>
-  {{/ballot-switcher}}
+
 
     <p class="ballot-switcher__ss13-warning">
       {{#if (eq model.selected "13")}}
@@ -37,9 +30,3 @@
 </div>
 
 {{site-footer}}
-
-<div class="more-races">
-  <div class="more-races__link">
-    {{link-to 'See All Races' 'all-races'}}
-  </div>
-</div>
