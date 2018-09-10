@@ -1,5 +1,7 @@
 <div class="ballot-form__input">
-  <h3 class="ballot-form__sub">Enter your address below</h3>
+  <h3 class="ballot-form__sub">Enter your address below or
+    {{#link-to 'all-races' class="ballot-form_all-races-link"}}view all
+      races{{/link-to}}:</h3>
   {{input
     value=address
     class="ballot-form__field"
