@@ -3,7 +3,7 @@
 // district 11 has 4 candidates, 2 dem and 2 rep
 export default [{
     "race": "2",
-    "raceTitle": "District",
+    "raceTitle": "State Assembly",
     "party": "Democrat",
     "firstName": "Du Wayne",
     "surname": "Gregory",
