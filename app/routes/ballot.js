@@ -4,10 +4,16 @@ import { bind } from "@ember/runloop";
 export default Route.extend({
   model({ sa_district, ss_district, party }) {
     let races = this.store.peekAll("race").filter(function(race) {
-      if (race.get("id") === sa_district) {
+      if (
+        race.get("id") === sa_district &&
+        race.get("raceTitle") === "State Assembly"
+      ) {
         return true;
       }
-      if (race.get("id") === ss_district) {
+      if (
+        race.get("id") === ss_district &&
+        race.get("raceTitle") === "State Senate"
+      ) {
         return true;
       }
       if (race.get("type") === "statewide") {
