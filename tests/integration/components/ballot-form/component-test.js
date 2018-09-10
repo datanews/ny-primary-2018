@@ -18,11 +18,12 @@ import ERRORS from 'ny-primary-2018/lib/errors';
 import { MULTIPLE_RESULTS } from '../../../../mirage/fixtures/geocoder';
 
 let findSpy;
-let district;
+let saDistrict;
+let ssDistrict;
 const LocatorStub = Service.extend({
   findDistrict: task(function * (address) {
     yield findSpy(address);
-    return {district};
+    return {saDistrict, ssDistrict};
   })
 });
 
@@ -70,7 +71,8 @@ module('Integration | Component | ballot-form', function(hooks) {
   });
 
   test('submitting calls showBallot with district and party', async function(assert) {
-    district = 1;
+    saDistrict = 1;
+    ssDistrict = 2;
     const PARTY = 'dem';
     let spy = this.spy();
     this.set('showBallot', spy);
@@ -80,7 +82,7 @@ module('Integration | Component | ballot-form', function(hooks) {
     // await click('[data-test-selector=dem]');
 
     await click('.ballot-form__submit');
-    assert.ok(spy.calledWith(district, PARTY));
+    assert.ok(spy.calledWith(saDistrict, ssDistrict, PARTY));
   });
 
   test('it shows suggested addresses', async function(assert) {
